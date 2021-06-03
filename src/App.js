@@ -1,12 +1,10 @@
 import React from 'react';
 import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
 
+import WelcomeScreen from './screens/WelcomeScreen';
+
 const App = () => {
-  return (
-    <View style={styles.container}>
-      <Text style={{color: '#000'}}>Start screen</Text>
-    </View>
-  );
+  return <WelcomeScreen />;
 };
 
 const styles = StyleSheet.create({
