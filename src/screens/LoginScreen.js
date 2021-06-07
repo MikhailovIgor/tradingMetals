@@ -1,5 +1,12 @@
 import React from 'react';
-import {Text, View, SafeAreaView, StatusBar, StyleSheet} from 'react-native';
+import {
+  Text,
+  View,
+  SafeAreaView,
+  StatusBar,
+  KeyboardAvoidingView,
+  StyleSheet,
+} from 'react-native';
 import {Button, Input} from 'react-native-elements';
 import {Formik} from 'formik';
 import * as Yup from 'yup';
@@ -31,9 +38,7 @@ const LoginScreen = () => {
 
       <View style={styles.titleContainer}>
         <View style={styles.titleBox}>
-          <View>
-            <Text style={styles.welcomeText}>Log in</Text>
-          </View>
+          <Text style={styles.headerText}>Log in</Text>
         </View>
       </View>
 
@@ -49,18 +54,30 @@ const LoginScreen = () => {
           values,
           touched,
           errors,
-        }) => <Input label="First Name" placeholder="Your First Name" />}
+        }) => (
+          <KeyboardAvoidingView behavior="height" style={styles.inputsBox}>
+            <Input
+              label="First Name"
+              placeholder="Your First Name"
+              inputContainerStyle={styles.inputContainer}
+            />
+            <Input
+              label="Last Name"
+              placeholder="Your Last Name"
+              inputContainerStyle={styles.inputContainer}
+            />
+            <Button
+              type="solid"
+              title="Log in"
+              buttonStyle={styles.loginButton}
+              titleStyle={styles.loginButtonText}
+              onPress={() => null}
+            />
+          </KeyboardAvoidingView>
+        )}
       </Formik>
 
-      <View style={styles.mainButtons}>
-        <Button
-          type="solid"
-          title="Log in"
-          buttonStyle={styles.loginButton}
-          titleStyle={styles.loginButtonText}
-          onPress={() => null}
-        />
-      </View>
+      <View style={styles.mainButtons}></View>
 
       <CustomButtonsBox />
     </SafeAreaView>
@@ -72,29 +89,38 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
     backgroundColor: COLORS.white,
+    alignItems: 'center',
+    justifyContent: 'space-around',
   },
   titleContainer: {
-    flex: 0.35,
+    flex: 0.25,
     width: '100%',
-    alignItems: 'center',
+    alignItems: 'flex-start',
     justifyContent: 'center',
   },
   titleBox: {
-    width: '80%',
-    height: '50%',
+    marginLeft: '7%',
+    height: '55%',
+    flexDirection: 'column-reverse',
     justifyContent: 'space-between',
   },
-  mainButtons: {
-    flex: 0.2,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  customButtonsBox: {
+  inputsBox: {
     flex: 0.4,
-    marginTop: 20,
     alignItems: 'center',
+    justifyContent: 'space-around',
   },
-  welcomeText: {
+
+  inputContainer: {
+    borderWidth: 1,
+    borderColor: '#bdbdbd',
+    borderRadius: 5,
+    paddingLeft: 10,
+    marginTop: 6,
+    width: 320,
+    height: 50,
+    justifyContent: 'center',
+  },
+  headerText: {
     fontFamily: 'OpenSans-SemiBold',
     fontSize: 36,
   },
@@ -102,29 +128,11 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.primary,
     borderRadius: 5,
     width: 320,
-    height: 46,
+    height: 50,
+    marginTop: 1,
   },
   loginButtonText: {
     color: COLORS.white,
-    fontFamily: 'OpenSans-SemiBold',
-    fontSize: 20,
-  },
-  createAccButton: {
-    backgroundColor: COLORS.white,
-    borderColor: COLORS.primary,
-    borderWidth: 1,
-    borderRadius: 5,
-    width: 320,
-    height: 46,
-    marginTop: 22,
-  },
-  createAccText: {
-    color: COLORS.primary,
-    fontFamily: 'OpenSans-SemiBold',
-    fontSize: 20,
-  },
-  customButtonsTitle: {
-    color: '#333',
     fontFamily: 'OpenSans-SemiBold',
     fontSize: 20,
   },

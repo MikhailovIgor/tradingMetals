@@ -21,8 +21,8 @@ const WelcomeScreen = () => {
         <View style={styles.titleBox}>
           <Image source={require('../assets/images/goldX.png')} />
           <View>
-            <Text style={styles.welcomeText}>Welcome</Text>
-            <Text style={styles.welcomeText}>to GoldX</Text>
+            <Text style={styles.headerText}>Welcome</Text>
+            <Text style={styles.headerText}>to GoldX</Text>
           </View>
         </View>
       </View>
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  welcomeText: {
+  headerText: {
     fontFamily: 'OpenSans-SemiBold',
     fontSize: 36,
   },
