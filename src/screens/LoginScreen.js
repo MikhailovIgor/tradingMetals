@@ -1,31 +1,56 @@
 import React from 'react';
-import {
-  Text,
-  View,
-  SafeAreaView,
-  Image,
-  StatusBar,
-  StyleSheet,
-} from 'react-native';
-import {Button} from 'react-native-elements';
+import {Text, View, SafeAreaView, StatusBar, StyleSheet} from 'react-native';
+import {Button, Input} from 'react-native-elements';
+import {Formik} from 'formik';
+import * as Yup from 'yup';
 
 import CustomButtonsBox from '../components/CustomButtonsBox';
 import {COLORS} from '../constants/colors';
 
-const WelcomeScreen = () => {
+const LoginScreen = () => {
+  const initialValues = {firstName: '', lastName: ''};
+  const validationSchema = Yup.object({
+    firstName: Yup.string()
+      .min(2, 'at least 2 symbols')
+      .max(20, 'must be 20 or less')
+      .required('first name is required'),
+    lastName: Yup.string()
+      .min(2, 'at least 2 symbols')
+      .max(20, 'must be 20 or less')
+      .required('last name is required'),
+  });
+
+  const handleSubmit = (values, {resetForm}) => {
+    console.log('users name is:', values);
+    resetForm(initialValues);
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar backgroundColor={COLORS.white} barStyle="dark-content" />
 
       <View style={styles.titleContainer}>
         <View style={styles.titleBox}>
-          <Image source={require('../assets/images/goldX.png')} />
           <View>
-            <Text style={styles.welcomeText}>Welcome</Text>
-            <Text style={styles.welcomeText}>to GoldX</Text>
+            <Text style={styles.welcomeText}>Log in</Text>
           </View>
         </View>
       </View>
+
+      <Formik
+        initialValues={initialValues}
+        validationSchema={validationSchema}
+        onSubmit={handleSubmit}>
+        {({
+          handleSubmit,
+          handleBlur,
+          handleChange,
+          resetForm,
+          values,
+          touched,
+          errors,
+        }) => <Input label="First Name" placeholder="Your First Name" />}
+      </Formik>
 
       <View style={styles.mainButtons}>
         <Button
@@ -35,14 +60,8 @@ const WelcomeScreen = () => {
           titleStyle={styles.loginButtonText}
           onPress={() => null}
         />
-        <Button
-          type="outline"
-          title="Create account"
-          buttonStyle={styles.createAccButton}
-          titleStyle={styles.createAccText}
-          onPress={() => null}
-        />
       </View>
+
       <CustomButtonsBox />
     </SafeAreaView>
   );
@@ -68,6 +87,11 @@ const styles = StyleSheet.create({
   mainButtons: {
     flex: 0.2,
     justifyContent: 'center',
+    alignItems: 'center',
+  },
+  customButtonsBox: {
+    flex: 0.4,
+    marginTop: 20,
     alignItems: 'center',
   },
   welcomeText: {
@@ -99,6 +123,11 @@ const styles = StyleSheet.create({
     fontFamily: 'OpenSans-SemiBold',
     fontSize: 20,
   },
+  customButtonsTitle: {
+    color: '#333',
+    fontFamily: 'OpenSans-SemiBold',
+    fontSize: 20,
+  },
 });
 
-export default WelcomeScreen;
+export default LoginScreen;
