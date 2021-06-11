@@ -2,13 +2,10 @@ import React from 'react';
 import {TouchableOpacity, Image, StyleSheet} from 'react-native';
 
 const CustomButton = ({imagePath, width, height}) => (
-  <TouchableOpacity style={styles.container} onPress={() => null}>
-    <Image
-      source={imagePath}
-      style={styles.logoStyle}
-      width={width}
-      height={height}
-    />
+  <TouchableOpacity
+    style={styles.container}
+    onPress={() => console.log(width, height)}>
+    <Image source={imagePath} style={{width: width, height: height}} />
   </TouchableOpacity>
 );
 
@@ -23,7 +20,6 @@ const styles = StyleSheet.create({
     height: 42,
     marginTop: 14,
   },
-  logoStyle: {},
 });
 
 export default CustomButton;

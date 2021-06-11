@@ -6,17 +6,13 @@ import {
   Image,
   StatusBar,
   StyleSheet,
-  Dimensions,
 } from 'react-native';
 import {Button} from 'react-native-elements';
 
-import CustomButton from '../components/CustomButton';
+import CustomButtonsBox from '../components/CustomButtonsBox';
 import {COLORS} from '../constants/colors';
 
-const DEVICE_WIDTH = Dimensions.get('window').width;
-const DEVICE_HEIGHT = Dimensions.get('window').height;
-
-const WelcomeScreen = () => {
+const WelcomeScreen = ({navigation}) => {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar backgroundColor={COLORS.white} barStyle="dark-content" />
@@ -25,8 +21,8 @@ const WelcomeScreen = () => {
         <View style={styles.titleBox}>
           <Image source={require('../assets/images/goldX.png')} />
           <View>
-            <Text style={styles.welcomeText}>Welcome</Text>
-            <Text style={styles.welcomeText}>to GoldX</Text>
+            <Text style={styles.headerText}>Welcome</Text>
+            <Text style={styles.headerText}>to GoldX</Text>
           </View>
         </View>
       </View>
@@ -37,43 +33,25 @@ const WelcomeScreen = () => {
           title="Log in"
           buttonStyle={styles.loginButton}
           titleStyle={styles.loginButtonText}
-          onPress={() => null}
+          onPress={() => navigation.navigate('login')}
         />
         <Button
           type="outline"
           title="Create account"
           buttonStyle={styles.createAccButton}
           titleStyle={styles.createAccText}
-          onPress={() => null}
+          onPress={() => navigation.navigate('signUp')}
         />
       </View>
-
-      <View style={styles.customButtonsBox}>
-        <Text style={styles.customButtonsTitle}>Or Login with</Text>
-        <CustomButton
-          imagePath={require('../assets/images/jimBullion.png')}
-          width={122}
-          height={22}
-        />
-        <CustomButton
-          imagePath={require('../assets/images/silverLogo.png')}
-          width={122}
-          height={22}
-        />
-        <CustomButton
-          imagePath={require('../assets/images/provident.png')}
-          width={122}
-          height={26}
-        />
-      </View>
+      <CustomButtonsBox />
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    width: DEVICE_WIDTH,
-    height: DEVICE_HEIGHT,
+    width: '100%',
+    height: '100%',
     backgroundColor: COLORS.white,
   },
   titleContainer: {
@@ -92,12 +70,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  customButtonsBox: {
-    flex: 0.4,
-    marginTop: 20,
-    alignItems: 'center',
-  },
-  welcomeText: {
+  headerText: {
     fontFamily: 'OpenSans-SemiBold',
     fontSize: 36,
   },
@@ -123,11 +96,6 @@ const styles = StyleSheet.create({
   },
   createAccText: {
     color: COLORS.primary,
-    fontFamily: 'OpenSans-SemiBold',
-    fontSize: 20,
-  },
-  customButtonsTitle: {
-    color: '#333',
     fontFamily: 'OpenSans-SemiBold',
     fontSize: 20,
   },
