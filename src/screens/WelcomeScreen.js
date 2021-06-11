@@ -12,7 +12,7 @@ import {Button} from 'react-native-elements';
 import CustomButtonsBox from '../components/CustomButtonsBox';
 import {COLORS} from '../constants/colors';
 
-const WelcomeScreen = () => {
+const WelcomeScreen = ({navigation}) => {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar backgroundColor={COLORS.white} barStyle="dark-content" />
@@ -33,14 +33,14 @@ const WelcomeScreen = () => {
           title="Log in"
           buttonStyle={styles.loginButton}
           titleStyle={styles.loginButtonText}
-          onPress={() => null}
+          onPress={() => navigation.navigate('login')}
         />
         <Button
           type="outline"
           title="Create account"
           buttonStyle={styles.createAccButton}
           titleStyle={styles.createAccText}
-          onPress={() => null}
+          onPress={() => navigation.navigate('signUp')}
         />
       </View>
       <CustomButtonsBox />
