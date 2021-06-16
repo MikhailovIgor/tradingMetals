@@ -10,7 +10,7 @@ import VerCompleteScreen from '../screens/VerCompleteScreen';
 const Stack = createStackNavigator();
 
 const AuthStack = () => (
-  <Stack.Navigator initialRouteName="verification complete">
+  <Stack.Navigator initialRouteName="onBoard">
     <Stack.Screen
       name="onBoard"
       component={OnboardingScreen}
@@ -32,7 +32,7 @@ const AuthStack = () => (
       options={{headerShown: false}}
     />
     <Stack.Screen
-      name="verification complete"
+      name="verificationComplete"
       component={VerCompleteScreen}
       options={{headerShown: false}}
     />

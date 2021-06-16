@@ -7,11 +7,12 @@ import {
   KeyboardAvoidingView,
   StyleSheet,
 } from 'react-native';
-import {Button, Input} from 'react-native-elements';
+import {Input} from 'react-native-elements';
 import {Formik} from 'formik';
 import * as Yup from 'yup';
 
 import CustomButtonsBox from '../components/CustomButtonsBox';
+import MainButton from '../components/MainButton';
 import {COLORS} from '../constants/colors';
 
 const LoginScreen = () => {
@@ -35,13 +36,11 @@ const LoginScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar backgroundColor={COLORS.white} barStyle="dark-content" />
-
       <View style={styles.titleContainer}>
         <View style={styles.titleBox}>
           <Text style={styles.headerText}>Log in</Text>
         </View>
       </View>
-
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
@@ -58,27 +57,22 @@ const LoginScreen = () => {
           <KeyboardAvoidingView behavior="height" style={styles.inputsBox}>
             <Input
               label="First Name"
+              labelStyle={{fontFamily: 'OpenSans-Regular'}}
               placeholder="Your First Name"
+              placeholderTextColor={COLORS.grey}
               inputContainerStyle={styles.inputContainer}
             />
             <Input
               label="Last Name"
+              labelStyle={{fontFamily: 'OpenSans-Regular'}}
               placeholder="Your Last Name"
+              placeholderTextColor={COLORS.grey}
               inputContainerStyle={styles.inputContainer}
             />
-            <Button
-              type="solid"
-              title="Log in"
-              buttonStyle={styles.loginButton}
-              titleStyle={styles.loginButtonText}
-              onPress={() => null}
-            />
+            <MainButton title="Log in" onPress={() => null} />
           </KeyboardAvoidingView>
         )}
       </Formik>
-
-      <View style={styles.mainButtons}></View>
-
       <CustomButtonsBox />
     </SafeAreaView>
   );
@@ -109,7 +103,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-around',
   },
-
   inputContainer: {
     borderWidth: 1,
     borderColor: '#bdbdbd',
@@ -117,24 +110,12 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
     marginTop: 6,
     width: 320,
-    height: 50,
+    height: 48,
     justifyContent: 'center',
   },
   headerText: {
     fontFamily: 'OpenSans-SemiBold',
     fontSize: 36,
-  },
-  loginButton: {
-    backgroundColor: COLORS.primary,
-    borderRadius: 5,
-    width: 320,
-    height: 50,
-    marginTop: 1,
-  },
-  loginButtonText: {
-    color: COLORS.white,
-    fontFamily: 'OpenSans-SemiBold',
-    fontSize: 20,
   },
 });
 

@@ -1,8 +1,8 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
-import {Button} from 'react-native-elements';
 
+import MainButton from '../components/MainButton';
 import {COLORS} from '../constants/colors';
 
 const VerCompleteScreen = () => {
@@ -20,8 +20,7 @@ const VerCompleteScreen = () => {
         </View>
         <Icon name="check" color="#2f80ed" size={80} />
       </View>
-      <Button
-        buttonStyle={styles.button}
+      <MainButton
         title="Next"
         onPress={() => console.log('verification complete')}
       />
@@ -39,12 +38,6 @@ const styles = StyleSheet.create({
     fontFamily: 'OpenSans-SemiBold',
     fontSize: 32,
     color: COLORS.black,
-  },
-  button: {
-    backgroundColor: COLORS.primary,
-    borderRadius: 5,
-    height: 45,
-    width: 300,
   },
 });
 
