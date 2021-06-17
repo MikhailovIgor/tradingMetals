@@ -1,7 +1,14 @@
 import React from 'react';
 import NameStep from '../components/signUpSteps/NameStep';
+import CountryStep from '../components/signUpSteps/CountryStep';
 
 export default [
+  {
+    id: '1',
+    title: "Let's get started",
+    description: 'Choose your country residence',
+    component: <CountryStep />,
+  },
   {
     id: '2',
     title: 'Your Name\nand Last Name',
