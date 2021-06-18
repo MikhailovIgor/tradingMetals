@@ -5,6 +5,7 @@ import OnboardingScreen from '../screens/OnboardingScreen';
 import WelcomeScreen from '../screens/WelcomeScreen';
 import LoginScreen from '../screens/LoginScreen';
 import SignUpScreen from '../screens/SignUpScreen';
+import VerCompleteScreen from '../screens/VerCompleteScreen';
 
 const Stack = createStackNavigator();
 
@@ -28,6 +29,11 @@ const AuthStack = () => (
     <Stack.Screen
       name="signUp"
       component={SignUpScreen}
+      options={{headerShown: false}}
+    />
+    <Stack.Screen
+      name="verificationComplete"
+      component={VerCompleteScreen}
       options={{headerShown: false}}
     />
   </Stack.Navigator>

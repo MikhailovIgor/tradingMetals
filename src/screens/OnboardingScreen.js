@@ -2,20 +2,19 @@ import React, {useState, useRef} from 'react';
 import {
   StyleSheet,
   View,
-  StatusBar,
-  SafeAreaView,
   Animated,
   TouchableOpacity,
   Text,
   FlatList,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import {Button} from 'react-native-elements';
 
 import {COLORS} from '../constants/colors';
 import slides from '../utils/onBoardData';
+import CustomStatusBar from '../components/CustomStatusBar';
 import OnboardingItem from '../components/OnboardingItem';
 import Paginator from '../components/Paginator';
+import MainButton from '../components/MainButton';
 
 const OnboardingScreen = ({navigation}) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -37,14 +36,14 @@ const OnboardingScreen = ({navigation}) => {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <LinearGradient
         colors={['#3081ee', '#205eb1']}
         style={styles.linearGradient}>
-        <StatusBar
+        <CustomStatusBar
+          backgroundColor="transparent"
           barStyle="light-content"
           translucent
-          backgroundColor={'transparent'}
         />
         <View style={{flex: 0.15}}>
           <TouchableOpacity
@@ -75,9 +74,9 @@ const OnboardingScreen = ({navigation}) => {
       </LinearGradient>
       <View style={styles.footer}>
         <Paginator data={slides} currentSlide={currentIndex} />
-        <Button buttonStyle={styles.button} title="Next" onPress={scrollTo} />
+        <MainButton title="Next" onPress={scrollTo} />
       </View>
-    </SafeAreaView>
+    </View>
   );
 };
 
@@ -86,7 +85,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   linearGradient: {
-    flex: 0.8,
+    flex: 0.85,
   },
   skipContainer: {
     position: 'absolute',
@@ -99,16 +98,10 @@ const styles = StyleSheet.create({
     fontSize: 18,
   },
   footer: {
-    flex: 0.2,
+    flex: 0.15,
     justifyContent: 'flex-start',
     alignItems: 'center',
-  },
-  button: {
-    backgroundColor: COLORS.primary,
-    borderRadius: 5,
-    height: 45,
-    width: 300,
-    marginTop: 20,
+    paddingTop: 5,
   },
 });
 

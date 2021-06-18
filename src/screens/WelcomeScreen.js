@@ -10,6 +10,7 @@ import {
 import {Button} from 'react-native-elements';
 
 import CustomButtonsBox from '../components/CustomButtonsBox';
+import MainButton from '../components/MainButton';
 import {COLORS} from '../constants/colors';
 
 const WelcomeScreen = ({navigation}) => {
@@ -28,11 +29,8 @@ const WelcomeScreen = ({navigation}) => {
       </View>
 
       <View style={styles.mainButtons}>
-        <Button
-          type="solid"
+        <MainButton
           title="Log in"
-          buttonStyle={styles.loginButton}
-          titleStyle={styles.loginButtonText}
           onPress={() => navigation.navigate('login')}
         />
         <Button
@@ -73,17 +71,6 @@ const styles = StyleSheet.create({
   headerText: {
     fontFamily: 'OpenSans-SemiBold',
     fontSize: 36,
-  },
-  loginButton: {
-    backgroundColor: COLORS.primary,
-    borderRadius: 5,
-    width: 320,
-    height: 46,
-  },
-  loginButtonText: {
-    color: COLORS.white,
-    fontFamily: 'OpenSans-SemiBold',
-    fontSize: 20,
   },
   createAccButton: {
     backgroundColor: COLORS.white,
