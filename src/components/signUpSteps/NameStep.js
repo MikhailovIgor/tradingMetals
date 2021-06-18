@@ -1,12 +1,15 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {View, StyleSheet} from 'react-native';
 import {Input} from 'react-native-elements';
 import {Formik} from 'formik';
 import * as Yup from 'yup';
 
-const NameStep = ({handleSubmit}) => {
-  const initialValues = {firstName: '', lastName: ''};
+import {COLORS} from '../../constants/colors';
 
+const NameStep = ({handleSubmit}) => {
+  const [isLoading, setIsLoading] = useState(false);
+
+  const initialValues = {firstName: '', lastName: ''};
   const validationSchema = Yup.object({
     firstName: Yup.string()
       .min(2, 'at least 2 symbols')
@@ -31,12 +34,12 @@ const NameStep = ({handleSubmit}) => {
         touched,
         errors,
       }) => (
-        <View>
+        <>
           <Input
             label="First Name"
             labelStyle={styles.labelStyle}
             placeholder="Your First Name"
-            placeholderTextColor="#95ACCA"
+            placeholderTextColor={COLORS.grey}
             inputContainerStyle={styles.inputContainerStyle}
             onChangeText={handleChange('firstName')}
             onBlur={handleBlur('firstName')}
@@ -48,7 +51,7 @@ const NameStep = ({handleSubmit}) => {
             label="Last Name"
             labelStyle={styles.labelStyle}
             placeholder="Your Last Name"
-            placeholderTextColor="#95ACCA"
+            placeholderTextColor={COLORS.grey}
             inputContainerStyle={styles.inputContainerStyle}
             onChangeText={handleChange('lastName')}
             onBlur={handleBlur('lastName')}
@@ -56,7 +59,7 @@ const NameStep = ({handleSubmit}) => {
             errorStyle={{color: 'red'}}
             containerStyle={styles.containerStyle}
           />
-        </View>
+        </>
       )}
     </Formik>
   );
@@ -72,7 +75,7 @@ const styles = StyleSheet.create({
     borderColor: '#bdbdbd',
     borderWidth: 1,
     borderRadius: 5,
-    width: 320,
+    width: '100%',
     height: 47,
     paddingLeft: 10,
   },

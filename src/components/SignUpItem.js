@@ -26,10 +26,21 @@ const styles = StyleSheet.create({
     marginBottom: 30,
   },
   textContainer: {
+    // borderColor: 'red',
+    // borderWidth: 1,
     width: '86%',
     height: '36%',
     justifyContent: 'center',
     paddingBottom: 30,
+  },
+  componentContainer: {
+    // backgroundColor: 'yellow',
+    // borderWidth: 1,
+    height: '50%',
+    width: '86%',
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
+    paddingTop: 10,
   },
   titleText: {
     color: COLORS.black,
@@ -42,14 +53,7 @@ const styles = StyleSheet.create({
     color: COLORS.black,
     fontFamily: 'OpenSans-Regular',
     fontSize: 16,
-    width: '80%',
-  },
-  componentContainer: {
-    height: '50%',
-    width: '86%',
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    paddingTop: 10,
+    width: '100%',
   },
 });
 

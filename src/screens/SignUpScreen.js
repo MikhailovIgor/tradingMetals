@@ -83,13 +83,13 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'space-around',
-    alignItems: 'center',
+    // alignItems: 'center',
     backgroundColor: COLORS.white,
   },
   multiStep: {
     flex: 0.8,
-    justifyContent: 'center',
-    alignItems: 'center',
+    // justifyContent: 'center',
+    // alignItems: 'center',
   },
   footer: {
     flex: 0.2,
