@@ -3,12 +3,14 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 
 import AuthStack from './navigation/AuthStack';
-import LoginScreen from './screens/LoginScreen';
+import BottomTabNavigator from './navigation/BottomTabNavigator';
 
 const App = () => {
+  const auth = true;
+
   return (
     <NavigationContainer>
-      <AuthStack />
+      {auth ? <BottomTabNavigator /> : <AuthStack />}
     </NavigationContainer>
   );
 };
