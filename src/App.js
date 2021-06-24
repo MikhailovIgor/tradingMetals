@@ -6,7 +6,7 @@ import AuthStack from './navigation/AuthStack';
 import BottomTabNavigator from './navigation/BottomTabNavigator';
 
 const App = () => {
-  const auth = true;
+  const auth = false;
 
   return (
     <NavigationContainer>

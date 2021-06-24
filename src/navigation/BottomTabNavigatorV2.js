@@ -8,7 +8,6 @@ import {
 import {COLORS} from '../constants/colors';
 import HomeScreen from '../screens/HomeScreen';
 import PortfolioScreen from '../screens/PortfolioScreen';
-import NullScreen from '../screens/NullScreen';
 import PricesScreen from '../screens/PricesScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import {
@@ -23,20 +22,19 @@ const Tab = createBottomTabNavigator();
 const activeTintColor = COLORS.primary;
 const inActiveTintColor = COLORS.grey;
 
-const BottomTabNavigator = () => (
+const BottomTabNavigator = ({barColor = 'transparent'}) => (
   <Tab.Navigator
-    initialRouteName="Home"
     tabBar={props => (
       <View style={styles.navigatorContainer}>
         <BottomTabBar {...props} />
-        {Platform.OS === 'ios' && <View style={styles.iosFillLine} />}
+        {Platform.OS === 'ios' && (
+          <View style={[styles.iosFillLine, {backgroundColor: barColor}]} />
+        )}
       </View>
     )}
     tabBarOptions={{
+      showIcon: true,
       style: styles.navigator,
-      tabStyle: {
-        backgroundColor: '#fff',
-      },
     }}>
     <Tab.Screen
       name="Home"
@@ -60,14 +58,9 @@ const BottomTabNavigator = () => (
     />
     <Tab.Screen
       name="Modal"
-      component={NullScreen}
+      component={HomeScreen}
       options={{
-        tabBarButton: props => (
-          <TabBarCentralButton
-            bgColor={COLORS.white}
-            onPress={() => console.log('central Button pressed')}
-          />
-        ),
+        tabBarButton: props => <TabBarCentralButton />,
       }}
     />
     <Tab.Screen
@@ -97,17 +90,20 @@ const styles = StyleSheet.create({
     bottom: 0,
     left: 0,
     right: 0,
-    shadowColor: 'grey',
+    shadowColor: '#000',
     shadowOffset: {
       width: 0,
-      height: 2,
+      height: 1,
     },
-    shadowOpacity: 0.3,
-    shadowRadius: 3,
+    shadowOpacity: 0.22,
+    shadowRadius: 2.22,
   },
   navigator: {
     borderTopWidth: 0,
-    backgroundColor: 'transparent',
+    backgroundColor: 'white',
+    paddingHorizontal: 15,
+    borderTopLeftRadius: 30,
+    borderTopRightRadius: 30,
     elevation: 30,
   },
   iosFillLine: {
@@ -116,7 +112,6 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     height: 30,
-    backgroundColor: '#fff',
   },
 });
 

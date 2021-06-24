@@ -11,21 +11,21 @@ export default [
     title: 'Gold, Silver,\n & Platinum',
     description:
       'GoldX is the fastest, easier and most cost effective way to buy gold, silver and platinum. Period. Join today and receive $5 to test drive GoldX for FREE.',
-    image: require('../assets/images/mockUp.png'),
+    image: require('../assets/images/GoldSilverPlatina.png'),
   },
   {
     id: '3',
     title: 'Metal Investing',
     description:
       'Unique precious metals digital platform powered by trusted leaders in precious metals APMEX & Sprott. Giving you a quick, cost-effective way of building a precious metals portfolio',
-    image: require('../assets/images/mockUp.png'),
+    image: require('../assets/images/MetalInvesting.png'),
   },
   {
     id: '4',
     title: 'Portfolio\nManagement',
     description:
       'Watching your portfolio increase in value is exciting. Check in daily to see your precious metals investments grow',
-    image: require('../assets/images/Portfolio.png'),
+    image: require('../assets/images/portfolioV2.png'),
   },
   {
     id: '5',
