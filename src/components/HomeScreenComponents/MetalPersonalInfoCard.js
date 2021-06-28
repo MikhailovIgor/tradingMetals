@@ -1,6 +1,8 @@
 import React from 'react';
 import {Text, View, StyleSheet} from 'react-native';
 
+import Divider from './Divider';
+
 const MetalPersonalInfoCard = () => {
   return (
     <View style={styles.container}>
@@ -25,7 +27,7 @@ const MetalPersonalInfoCard = () => {
         </Text>
       </View>
 
-      <View style={styles.divider} />
+      <Divider />
 
       <View style={styles.info}>
         <View style={{alignItems: 'flex-start'}}>
@@ -78,14 +80,6 @@ const styles = StyleSheet.create({
     fontFamily: 'OpenSans-Regular',
     fontSize: 16,
   },
-  divider: {
-    width: '88%',
-    height: 1,
-    alignSelf: 'center',
-    backgroundColor: 'rgba(47, 128, 237, 0.3)',
-  },
-  balance: {},
-  change: {},
 });
 
 export default MetalPersonalInfoCard;

@@ -25,7 +25,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'space-around',
     alignItems: 'center',
-    // backgroundColor: 'rgba(255, 189, 0, 0.3)',
     width: '88%',
     borderRadius: 5,
     marginTop: 30,
