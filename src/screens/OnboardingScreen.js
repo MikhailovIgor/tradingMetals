@@ -74,7 +74,7 @@ const OnboardingScreen = ({navigation}) => {
       </LinearGradient>
       <View style={styles.footer}>
         <Paginator data={slides} currentSlide={currentIndex} />
-        <MainButton title="Next" onPress={scrollTo} />
+        <MainButton title="Next" onPress={scrollTo} width={320} />
       </View>
     </View>
   );

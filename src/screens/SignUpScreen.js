@@ -72,7 +72,7 @@ const SignUpScreen = ({navigation}) => {
         </View>
         <View style={styles.footer}>
           <Paginator data={slides} currentSlide={currentIndex} />
-          <MainButton title="Continue" onPress={scrollTo} />
+          <MainButton title="Continue" onPress={scrollTo} width={320} />
         </View>
       </SafeAreaView>
     </KeyboardAvoidingView>
