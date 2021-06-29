@@ -1,7 +1,9 @@
 import React from 'react';
 import Svg, {Path} from 'react-native-svg';
 
-const DollarArrowDownIcon = ({color = '#A01313'}) => (
+import {COLORS} from '../../constants/colors';
+
+const DollarArrowDownIcon = ({color = COLORS.iconRed}) => (
   <Svg
     width="31"
     height="34"
