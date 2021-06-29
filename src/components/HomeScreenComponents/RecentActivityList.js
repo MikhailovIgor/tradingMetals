@@ -3,6 +3,7 @@ import {Text, View, FlatList, StyleSheet} from 'react-native';
 
 import recentActivityData from '../../utils/mockData/recentActivityData';
 import Divider from './Divider';
+import ViewMore from './ViewMore';
 
 const RecentActivityItem = item => (
   <View style={{flexDirection: 'row'}}>
@@ -12,7 +13,7 @@ const RecentActivityItem = item => (
   </View>
 );
 
-const RecentActivityList = () => {
+const RecentActivityList = ({onPress}) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Recent Activity</Text>
@@ -24,6 +25,7 @@ const RecentActivityList = () => {
         ItemSeparatorComponent={() => <Divider />}
         initialNumToRender={5}
       /> */}
+      <ViewMore onPress={onPress} />
     </View>
   );
 };
@@ -45,6 +47,7 @@ const styles = StyleSheet.create({
     color: '#050f19',
     fontFamily: 'OpenSans-SemiBold',
     fontSize: 26,
+    paddingVertical: 26,
   },
 });
 
