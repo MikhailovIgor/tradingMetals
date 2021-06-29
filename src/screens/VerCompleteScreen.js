@@ -5,7 +5,7 @@ import Icon from 'react-native-vector-icons/SimpleLineIcons';
 import MainButton from '../components/MainButton';
 import {COLORS} from '../constants/colors';
 
-const VerCompleteScreen = () => {
+const VerCompleteScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
       <View
@@ -20,10 +20,7 @@ const VerCompleteScreen = () => {
         </View>
         <Icon name="check" color="#2f80ed" size={80} />
       </View>
-      <MainButton
-        title="Next"
-        onPress={() => console.log('verification complete')}
-      />
+      <MainButton title="Next" onPress={() => null} />
     </View>
   );
 };

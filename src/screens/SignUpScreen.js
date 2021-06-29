@@ -10,7 +10,7 @@ import {
   Platform,
 } from 'react-native';
 
-import slides from '../utils/signUpData';
+import slides from '../utils/mockData/signUpData';
 import MainButton from '../components/MainButton';
 import SignUpItem from '../components/SignUpItem';
 import Paginator from '../components/Paginator';
