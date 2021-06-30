@@ -4,11 +4,22 @@ import {Text, View, FlatList, StyleSheet} from 'react-native';
 import recentActivityData from '../../utils/mockData/recentActivityData';
 import Divider from './Divider';
 import ViewMore from './ViewMore';
+import {CoinsIcon, DollarArrowDown, ThreeBullionsIcon} from '../svgComponents';
 
-const RecentActivityItem = item => (
-  <View style={{flexDirection: 'row'}}>
-    <View>
-      <Text>{item.action}</Text>
+const RecentActivityItem = ({item}) => (
+  <View style={styles.itemContainer}>
+    <View style={{width: '12%'}}>
+      <CoinsIcon />
+    </View>
+
+    <View style={{width: '67%'}}>
+      <Text style={styles.actionText}>{item.action}</Text>
+      <Text style={styles.date}>{item.date}</Text>
+    </View>
+
+    <View style={{width: '21%', alignItems: 'flex-end'}}>
+      <Text style={styles.capitalization}>{item.capitalization}</Text>
+      <Text>{item.amount}</Text>
     </View>
   </View>
 );
@@ -17,14 +28,14 @@ const RecentActivityList = ({onPress}) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Recent Activity</Text>
-      {/* <FlatList
-        nestedScrollEnabled
+      <FlatList
+        style={{height: 350}}
         data={recentActivityData}
         renderItem={({item}) => <RecentActivityItem item={item} />}
         keyExtractor={item => item.id}
-        ItemSeparatorComponent={() => <Divider />}
-        initialNumToRender={5}
-      /> */}
+        ItemSeparatorComponent={() => <Divider width="100%" />}
+        // initialNumToRender={3}
+      />
       <ViewMore onPress={onPress} />
     </View>
   );
@@ -38,7 +49,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     borderColor: 'rgba(47, 128, 237, 0.3)',
     borderWidth: 1.5,
-    width: '88%',
+    width: '90%',
     marginTop: 30,
     marginBottom: 130,
     paddingHorizontal: 20,
@@ -48,6 +59,27 @@ const styles = StyleSheet.create({
     fontFamily: 'OpenSans-SemiBold',
     fontSize: 26,
     paddingVertical: 26,
+  },
+  itemContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginVertical: 10,
+  },
+  actionText: {
+    color: '#050f19',
+    fontFamily: 'OpenSans-SemiBold',
+    fontSize: 18,
+  },
+  date: {
+    color: '#333',
+    fontFamily: 'OpenSans-SemiBold',
+    fontSize: 16,
+  },
+  capitalization: {
+    fontFamily: 'OpenSans-SemiBold',
+    fontSize: 16,
   },
 });
 

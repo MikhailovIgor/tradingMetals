@@ -2,8 +2,7 @@ import React from 'react';
 import {Text, View, StyleSheet} from 'react-native';
 
 import {COLORS} from '../../constants/colors';
-import LogoGoldX from '../svgComponents/LogoGoldX';
-import TriangleRedDown from '../svgComponents/TriangleRedDown';
+import {LogoGoldX, TriangleRedDown} from '../svgComponents';
 
 const HomeBlueHeader = () => {
   return (

@@ -5,9 +5,9 @@ import HomeBlueHeader from '../components/HomeScreenComponents/HomeBlueHeader';
 import MetalPersonalInfoCard from '../components/HomeScreenComponents/MetalPersonalInfoCard';
 import ColoredCard from '../components/HomeScreenComponents/ColoredCard';
 import RecentActivityList from '../components/HomeScreenComponents/RecentActivityList';
-import Divider from '../components/HomeScreenComponents/Divider';
-import recentActivityData from '../utils/mockData/recentActivityData';
-import ViewMore from '../components/HomeScreenComponents/ViewMore';
+// import Divider from '../components/HomeScreenComponents/Divider';
+// import recentActivityData from '../utils/mockData/recentActivityData';
+// import ViewMore from '../components/HomeScreenComponents/ViewMore';
 import {COLORS} from '../constants/colors';
 
 const HomeScreen = () => {
@@ -19,6 +19,7 @@ const HomeScreen = () => {
         backgroundColor={'transparent'}
       />
       <ScrollView
+        nestedScrollEnabled
         style={{width: '100%'}}
         contentContainerStyle={{alignItems: 'center'}}>
         <HomeBlueHeader />

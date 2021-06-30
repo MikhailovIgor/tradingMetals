@@ -27,7 +27,7 @@ const MetalPersonalInfoCard = () => {
         </Text>
       </View>
 
-      <Divider />
+      <Divider width="88%" />
 
       <View style={styles.info}>
         <View style={{alignItems: 'flex-start'}}>

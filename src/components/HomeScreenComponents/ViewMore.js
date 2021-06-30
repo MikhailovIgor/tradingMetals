@@ -1,7 +1,7 @@
 import React from 'react';
 import {Text, View, TouchableOpacity, StyleSheet} from 'react-native';
 
-import ArrowRight from '../svgComponents/ArrowRight';
+import {ArrowRight} from '../svgComponents';
 import {COLORS} from '../../constants/colors';
 
 const ViewMore = ({onPress}) => {
@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignSelf: 'center',
     justifyContent: 'space-around',
-    marginVertical: 20,
+    marginBottom: 20,
     width: '42%',
   },
   text: {
