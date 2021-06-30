@@ -27,16 +27,18 @@ const RecentActivityItem = ({item}) => (
 const RecentActivityList = ({onPress}) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Recent Activity</Text>
       <FlatList
-        style={{height: 350}}
+        scrollEnabled={false}
+        style={{height: 470}}
         data={recentActivityData}
         renderItem={({item}) => <RecentActivityItem item={item} />}
         keyExtractor={item => item.id}
         ItemSeparatorComponent={() => <Divider width="100%" />}
-        // initialNumToRender={3}
+        initialNumToRender={4}
+        ListHeaderComponent={<Text style={styles.title}>Recent Activity</Text>}
+        ListFooterComponent={<ViewMore onPress={onPress} />}
+        ListFooterComponentStyle={{marginTop: 10}}
       />
-      <ViewMore onPress={onPress} />
     </View>
   );
 };
@@ -58,7 +60,7 @@ const styles = StyleSheet.create({
     color: '#050f19',
     fontFamily: 'OpenSans-SemiBold',
     fontSize: 26,
-    paddingVertical: 26,
+    paddingVertical: 22,
   },
   itemContainer: {
     flex: 1,
