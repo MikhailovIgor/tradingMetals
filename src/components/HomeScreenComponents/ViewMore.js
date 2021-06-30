@@ -18,9 +18,9 @@ const ViewMore = ({onPress}) => {
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    alignSelf: 'center',
-    justifyContent: 'space-around',
-    width: '42%',
+    justifyContent: 'space-between',
+    width: 114,
+    alignItems: 'center',
   },
   text: {
     color: COLORS.primary,

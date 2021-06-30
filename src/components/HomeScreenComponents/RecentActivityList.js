@@ -37,7 +37,7 @@ const RecentActivityList = ({onPress}) => {
         initialNumToRender={4}
         ListHeaderComponent={<Text style={styles.title}>Recent Activity</Text>}
         ListFooterComponent={<ViewMore onPress={onPress} />}
-        ListFooterComponentStyle={{marginTop: 10}}
+        ListFooterComponentStyle={{marginTop: 10, alignSelf: 'center'}}
       />
     </View>
   );
@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
     borderWidth: 1.5,
     width: '90%',
     marginTop: 30,
-    marginBottom: 130,
+    // marginBottom: 130,
     paddingHorizontal: 20,
   },
   title: {

@@ -1,11 +1,11 @@
 import React from 'react';
-import {Text, View, StyleSheet} from 'react-native';
+import {Text, View, TouchableOpacity, StyleSheet} from 'react-native';
 
 import Divider from './Divider';
 
-const MetalPersonalInfoCard = () => {
+const MetalPersonalInfoCard = ({onPress}) => {
   return (
-    <View style={styles.container}>
+    <TouchableOpacity style={styles.container} onPress={onPress}>
       <View style={styles.info}>
         <Text
           style={{
@@ -50,7 +50,7 @@ const MetalPersonalInfoCard = () => {
           <Text style={styles.infoNumbers}>+ $12.34</Text>
         </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 

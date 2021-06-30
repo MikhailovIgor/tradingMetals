@@ -5,9 +5,7 @@ import HomeBlueHeader from '../components/HomeScreenComponents/HomeBlueHeader';
 import MetalPersonalInfoCard from '../components/HomeScreenComponents/MetalPersonalInfoCard';
 import ColoredCard from '../components/HomeScreenComponents/ColoredCard';
 import RecentActivityList from '../components/HomeScreenComponents/RecentActivityList';
-// import Divider from '../components/HomeScreenComponents/Divider';
-// import recentActivityData from '../utils/mockData/recentActivityData';
-// import ViewMore from '../components/HomeScreenComponents/ViewMore';
+import MarketNewsList from '../components/HomeScreenComponents/MarketNewsList';
 import {COLORS} from '../constants/colors';
 
 const HomeScreen = () => {
@@ -19,14 +17,22 @@ const HomeScreen = () => {
         backgroundColor={'transparent'}
       />
       <ScrollView
-        nestedScrollEnabled
+        nestedScrollEnabled={true}
         style={{width: '100%'}}
         contentContainerStyle={{alignItems: 'center'}}>
         <HomeBlueHeader />
-        <MetalPersonalInfoCard />
-        <MetalPersonalInfoCard />
-        <MetalPersonalInfoCard />
-        <MetalPersonalInfoCard />
+        <MetalPersonalInfoCard
+          onPress={() => console.log('navigate to holdings screen')}
+        />
+        <MetalPersonalInfoCard
+          onPress={() => console.log('navigate to holdings screen')}
+        />
+        <MetalPersonalInfoCard
+          onPress={() => console.log('navigate to holdings screen')}
+        />
+        <MetalPersonalInfoCard
+          onPress={() => console.log('navigate to holdings screen')}
+        />
         <ColoredCard
           title="Set Up Auto Buy"
           description="Start building your wealth with automated purchases"
@@ -44,6 +50,7 @@ const HomeScreen = () => {
           onPress={() => console.log('start trading now!')}
         />
         <RecentActivityList onPress={() => null} />
+        <MarketNewsList onPress={() => console.log('show screen with news')} />
       </ScrollView>
     </View>
   );
