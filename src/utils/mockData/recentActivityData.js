@@ -1,0 +1,42 @@
+export default [
+  {
+    id: '1',
+    icon: 'threeBullionsGrey',
+    action: 'Bought Platinum',
+    date: 'May 7, 2021',
+    capitalization: '+ $5.45',
+    amount: '0.002 oz',
+  },
+  {
+    id: '2',
+    icon: 'threeBullionsGreen',
+    action: 'Sold Platinum',
+    date: 'May 7, 2021',
+    capitalization: '+ $7.80',
+    amount: '0.003 oz',
+  },
+  {
+    id: '3',
+    icon: 'cashArrowDownRed',
+    action: 'Deposited Cash',
+    date: 'May 7, 2021',
+    capitalization: '+ $28.45',
+    amount: '',
+  },
+  {
+    id: '4',
+    icon: 'coinsGreen',
+    action: 'Redeemed Products F...',
+    date: 'May 7, 2021',
+    capitalization: '+ $4.12',
+    amount: '',
+  },
+  {
+    id: '5',
+    icon: 'cashArrowDownGreen',
+    action: 'Withdrawn cash',
+    date: 'May 7, 2021',
+    capitalization: '- $17.00',
+    amount: '',
+  },
+];

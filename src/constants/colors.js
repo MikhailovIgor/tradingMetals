@@ -3,4 +3,7 @@ export const COLORS = {
   black: '#000',
   grey: '#95acca',
   white: '#fff',
+  iconGrey: '#828282',
+  iconGreen: '#135d2d',
+  iconRed: '#a01313',
 };

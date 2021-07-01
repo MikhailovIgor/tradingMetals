@@ -10,7 +10,7 @@ import {
   Platform,
 } from 'react-native';
 
-import slides from '../utils/signUpData';
+import slides from '../utils/mockData/signUpData';
 import MainButton from '../components/MainButton';
 import SignUpItem from '../components/SignUpItem';
 import Paginator from '../components/Paginator';
@@ -72,7 +72,7 @@ const SignUpScreen = ({navigation}) => {
         </View>
         <View style={styles.footer}>
           <Paginator data={slides} currentSlide={currentIndex} />
-          <MainButton title="Continue" onPress={scrollTo} />
+          <MainButton title="Continue" onPress={scrollTo} width={320} />
         </View>
       </SafeAreaView>
     </KeyboardAvoidingView>
