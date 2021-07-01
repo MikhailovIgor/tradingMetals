@@ -1,44 +1,43 @@
 import React from 'react';
-import {Text, View, FlatList, StyleSheet} from 'react-native';
+import {Text, View, StyleSheet} from 'react-native';
 
 import recentActivityData from '../../utils/mockData/recentActivityData';
-import Divider from './Divider';
 import ViewMore from './ViewMore';
 import {CoinsIcon, DollarArrowDown, ThreeBullionsIcon} from '../svgComponents';
 
-const RecentActivityItem = ({item}) => (
-  <View style={styles.itemContainer}>
-    <View style={{width: '12%'}}>
-      <CoinsIcon />
-    </View>
-
-    <View style={{width: '67%'}}>
-      <Text style={styles.actionText}>{item.action}</Text>
-      <Text style={styles.date}>{item.date}</Text>
-    </View>
-
-    <View style={{width: '21%', alignItems: 'flex-end'}}>
-      <Text style={styles.capitalization}>{item.capitalization}</Text>
-      <Text>{item.amount}</Text>
-    </View>
-  </View>
-);
-
 const RecentActivityList = ({onPress}) => {
+  const size = 5;
+  const items = recentActivityData.slice(0, size);
+
   return (
     <View style={styles.container}>
-      <FlatList
-        scrollEnabled={false}
-        style={{height: 470}}
-        data={recentActivityData}
-        renderItem={({item}) => <RecentActivityItem item={item} />}
-        keyExtractor={item => item.id}
-        ItemSeparatorComponent={() => <Divider width="100%" />}
-        initialNumToRender={4}
-        ListHeaderComponent={<Text style={styles.title}>Recent Activity</Text>}
-        ListFooterComponent={<ViewMore onPress={onPress} />}
-        ListFooterComponentStyle={{marginTop: 10, alignSelf: 'center'}}
-      />
+      <Text style={styles.title}>Recent Activity</Text>
+      {items.map((item, index) => (
+        <View
+          key={item.id}
+          style={
+            index < 4
+              ? [styles.itemContainer, styles.divider]
+              : styles.itemContainer
+          }>
+          <View style={{width: '12%'}}>
+            <CoinsIcon />
+          </View>
+
+          <View style={{width: '67%'}}>
+            <Text style={styles.actionText}>{item.action}</Text>
+            <Text style={styles.date}>{item.date}</Text>
+          </View>
+
+          <View style={{width: '21%', alignItems: 'flex-end'}}>
+            <Text style={styles.capitalization}>{item.capitalization}</Text>
+            <Text>{item.amount}</Text>
+          </View>
+        </View>
+      ))}
+      <View style={styles.footer}>
+        <ViewMore onPress={onPress} />
+      </View>
     </View>
   );
 };
@@ -53,7 +52,6 @@ const styles = StyleSheet.create({
     borderWidth: 1.5,
     width: '90%',
     marginTop: 30,
-    // marginBottom: 130,
     paddingHorizontal: 20,
   },
   title: {
@@ -67,7 +65,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginVertical: 10,
+    paddingVertical: 14,
+  },
+  divider: {
+    borderBottomWidth: 1,
+    borderBottomColor: 'rgba(47, 128, 237, 0.3)',
   },
   actionText: {
     color: '#050f19',
@@ -82,6 +84,12 @@ const styles = StyleSheet.create({
   capitalization: {
     fontFamily: 'OpenSans-SemiBold',
     fontSize: 16,
+  },
+  footer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '100%',
+    marginBottom: 15,
   },
 });
 
