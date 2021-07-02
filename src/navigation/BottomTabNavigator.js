@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Platform, StyleSheet} from 'react-native';
+import {View, Platform, StyleSheet, TouchableOpacity} from 'react-native';
 import {
   createBottomTabNavigator,
   BottomTabBar,
@@ -23,6 +23,19 @@ import ButtonMenu from './ButtonMenu';
 const Tab = createBottomTabNavigator();
 const activeTintColor = COLORS.primary;
 const inActiveTintColor = COLORS.grey;
+
+const renderCustomTabBarButton = (props, customStyle) => {
+  const newProps = {
+    ...props,
+    style: [
+      ...props.style,
+      customStyle,
+    ],
+    activeOpacity: 1
+  };
+
+  return <TouchableOpacity {...newProps} />
+};
 
 const BottomTabNavigator = () => {
   const [visibleButtonMenu, setVisibleButtonMenu] = useState(false);
@@ -50,6 +63,7 @@ const BottomTabNavigator = () => {
           tabBarIcon: ({focused}) => (
             <HomeIcon color={focused ? activeTintColor : inActiveTintColor} />
           ),
+          tabBarButton: props => renderCustomTabBarButton(props, styles.firstTabBarButton)
         }}
       />
       <Tab.Screen
@@ -91,6 +105,7 @@ const BottomTabNavigator = () => {
           tabBarIcon: ({focused}) => (
             <SettingsIcon color={focused ? activeTintColor : inActiveTintColor} />
           ),
+          tabBarButton: props => renderCustomTabBarButton(props, styles.lastTabBarButton)
         }}
       />
     </Tab.Navigator>
@@ -129,6 +144,12 @@ const styles = StyleSheet.create({
     height: 30,
     backgroundColor: '#fff',
   },
+  firstTabBarButton: {
+    borderTopLeftRadius: 27
+  },
+  lastTabBarButton: {
+    borderTopRightRadius: 27
+  }
 });
 
 export default BottomTabNavigator;
