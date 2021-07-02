@@ -1,18 +1,12 @@
 import React from 'react';
-import NameStep from '../components/signUpSteps/NameStep';
-import CountryStep from '../components/signUpSteps/CountryStep';
-import EmailStep from '../components/signUpSteps/EmailStep';
-import PasswordStep from '../components/signUpSteps/PasswordStep';
-import MobileVerStep from '../components/signUpSteps/MobileVerStep';
-import MobileCodeStep from '../components/signUpSteps/MobileCodeStep';
+import NameStep from '../../components/signUpSteps/NameStep';
+import CountryStep from '../../components/signUpSteps/CountryStep';
+import EmailStep from '../../components/signUpSteps/EmailStep';
+import PasswordStep from '../../components/signUpSteps/PasswordStep';
+import MobileVerStep from '../../components/signUpSteps/MobileVerStep';
+import MobileCodeStep from '../../components/signUpSteps/MobileCodeStep';
 
 export default [
-  // {
-  //   id: '0',
-  //   title: "Let's get started",
-  //   description: 'Choose your country residence',
-  //   component: <CountryStep />,
-  // },
   {
     id: '1',
     title: 'Your Name\nand Last Name',

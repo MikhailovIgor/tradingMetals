@@ -10,7 +10,7 @@ import {
 import LinearGradient from 'react-native-linear-gradient';
 
 import {COLORS} from '../constants/colors';
-import slides from '../utils/onBoardData';
+import slides from '../utils/mockData/onBoardData';
 import CustomStatusBar from '../components/CustomStatusBar';
 import OnboardingItem from '../components/OnboardingItem';
 import Paginator from '../components/Paginator';
@@ -74,7 +74,7 @@ const OnboardingScreen = ({navigation}) => {
       </LinearGradient>
       <View style={styles.footer}>
         <Paginator data={slides} currentSlide={currentIndex} />
-        <MainButton title="Next" onPress={scrollTo} />
+        <MainButton title="Next" onPress={scrollTo} width={320} />
       </View>
     </View>
   );

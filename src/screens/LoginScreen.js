@@ -69,7 +69,7 @@ const LoginScreen = () => {
               placeholderTextColor={COLORS.grey}
               inputContainerStyle={styles.inputContainer}
             />
-            <MainButton title="Log in" onPress={() => null} />
+            <MainButton title="Log in" onPress={() => null} width={320} />
           </KeyboardAvoidingView>
         )}
       </Formik>
