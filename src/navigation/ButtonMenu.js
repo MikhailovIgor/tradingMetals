@@ -1,5 +1,5 @@
 import React from "react";
-import {View, Text, StyleSheet, TouchableOpacity, Image} from "react-native";
+import {View, Text, StyleSheet, TouchableOpacity, Platform} from "react-native";
 import {BottomSheet} from "react-native-elements";
 import Icon from 'react-native-vector-icons/Ionicons';
 import {
@@ -34,17 +34,21 @@ const LIST = [
     { 
         title: 'Redeem',
         text: 'Redeem your holdings for physical metals',
-        icon: <Redeem />
+        icon: <Redeem />,
+        style: {
+            marginBottom: 0
+        }
     },
 ];
 
 const Item = ({item, handlePress}) => {
     const imageSource = `../assets/images/ButtonMenu/${item.icon}`;
+    const itemStyle = [styles.item, item.style];
 
     return (
         <TouchableOpacity 
             onPress={() => handlePress(item.title)}
-            style={styles.item}
+            style={itemStyle}
         >
             <View style={styles.iconContainer}>
                 {item.icon}
@@ -80,7 +84,7 @@ const ButtonMenu = ({visible = false, close}) => {
             isVisible={visible}
             containerStyle={styles.container}
             >
-            <View style={styles.innerContainer}>
+            <View style={[styles.innerContainer, Platform.OS === 'ios' ? {marginBottom: 17} : {marginBottom: 21}]}>
                 <View style={styles.listContainer}>
                     {renderItems()}
                 </View>
@@ -99,7 +103,6 @@ const styles = StyleSheet.create({
     },
     innerContainer: {
         alignItems: "center",
-        marginBottom: 17
     },
     listContainer: {
         alignSelf: 'stretch',
@@ -148,7 +151,7 @@ const styles = StyleSheet.create({
             height: 1,
         },
         shadowRadius: 6,
-        elevation: 1,
+        elevation: 6,
     },
     closeIcon: {
         color: "#2F80ED",
