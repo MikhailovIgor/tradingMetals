@@ -8,7 +8,7 @@ import {
     Fund,
     Withdraw,
     Redeem
-  } from '../components/icons/buttonMenu';
+  } from '../components/svgComponents/buttonMenu';
 
 const LIST = [
     {
