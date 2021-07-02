@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {View, Platform, StyleSheet} from 'react-native';
 import {
   createBottomTabNavigator,
@@ -18,78 +18,89 @@ import {
   SettingsIcon,
   TabBarCentralButton,
 } from '../components/tabBarComponents';
+import ButtonMenu from './ButtonMenu';
 
 const Tab = createBottomTabNavigator();
 const activeTintColor = COLORS.primary;
 const inActiveTintColor = COLORS.grey;
 
-const BottomTabNavigator = () => (
-  <Tab.Navigator
-    initialRouteName="Home"
-    tabBar={props => (
-      <View style={styles.navigatorContainer}>
-        <BottomTabBar {...props} />
-        {Platform.OS === 'ios' && <View style={styles.iosFillLine} />}
-      </View>
-    )}
-    tabBarOptions={{
-      style: styles.navigator,
-      tabStyle: {
-        backgroundColor: '#fff',
-      },
-    }}>
-    <Tab.Screen
-      name="Home"
-      component={HomeScreen}
-      options={{
-        tabBarIcon: ({focused}) => (
-          <HomeIcon color={focused ? activeTintColor : inActiveTintColor} />
-        ),
-      }}
-    />
-    <Tab.Screen
-      name="Portfolio"
-      component={PortfolioScreen}
-      options={{
-        tabBarIcon: ({focused}) => (
-          <PortfolioIcon
-            color={focused ? activeTintColor : inActiveTintColor}
-          />
-        ),
-      }}
-    />
-    <Tab.Screen
-      name="Modal"
-      component={NullScreen}
-      options={{
-        tabBarButton: props => (
-          <TabBarCentralButton
-            bgColor={COLORS.white}
-            onPress={() => console.log('central Button pressed')}
-          />
-        ),
-      }}
-    />
-    <Tab.Screen
-      name="Prices"
-      component={PricesScreen}
-      options={{
-        tabBarIcon: ({focused}) => (
-          <PricesIcon color={focused ? activeTintColor : inActiveTintColor} />
-        ),
-      }}
-    />
-    <Tab.Screen
-      name="Settings"
-      component={SettingsScreen}
-      options={{
-        tabBarIcon: ({focused}) => (
-          <SettingsIcon color={focused ? activeTintColor : inActiveTintColor} />
-        ),
-      }}
-    />
-  </Tab.Navigator>
-);
+const BottomTabNavigator = () => {
+  const [visibleButtonMenu, setVisibleButtonMenu] = useState(false);
+
+  return (
+    <>
+    <Tab.Navigator
+      initialRouteName="Home"
+      tabBar={props => (
+        <View style={styles.navigatorContainer}>
+          <BottomTabBar {...props} />
+          {Platform.OS === 'ios' && <View style={styles.iosFillLine} />}
+        </View>
+      )}
+      tabBarOptions={{
+        style: styles.navigator,
+        tabStyle: {
+          backgroundColor: '#fff',
+        },
+      }}>
+      <Tab.Screen
+        name="Home"
+        component={HomeScreen}
+        options={{
+          tabBarIcon: ({focused}) => (
+            <HomeIcon color={focused ? activeTintColor : inActiveTintColor} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Portfolio"
+        component={PortfolioScreen}
+        options={{
+          tabBarIcon: ({focused}) => (
+            <PortfolioIcon
+              color={focused ? activeTintColor : inActiveTintColor}
+            />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Modal"
+        component={NullScreen}
+        options={{
+          tabBarButton: props => (
+            <TabBarCentralButton
+              bgColor={COLORS.white}
+              onPress={() => setVisibleButtonMenu(true)}
+            />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Prices"
+        component={PricesScreen}
+        options={{
+          tabBarIcon: ({focused}) => (
+            <PricesIcon color={focused ? activeTintColor : inActiveTintColor} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Settings"
+        component={SettingsScreen}
+        options={{
+          tabBarIcon: ({focused}) => (
+            <SettingsIcon color={focused ? activeTintColor : inActiveTintColor} />
+          ),
+        }}
+      />
+    </Tab.Navigator>
+      <ButtonMenu
+        visible={visibleButtonMenu}
+        close={() => setVisibleButtonMenu(false)}
+      />
+    </>
+  )
+};
 
 const styles = StyleSheet.create({
   navigatorContainer: {
