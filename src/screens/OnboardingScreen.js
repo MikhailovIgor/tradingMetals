@@ -11,7 +11,7 @@ import LinearGradient from 'react-native-linear-gradient';
 
 import {COLORS} from '../constants/colors';
 import slides from '../utils/mockData/onBoardData';
-import CustomStatusBar from '../components/CustomStatusBar';
+import CustomStatusBar from '@components/CustomStatusBar';
 import OnboardingItem from '../components/OnboardingItem';
 import Paginator from '../components/Paginator';
 import MainButton from '../components/MainButton';
