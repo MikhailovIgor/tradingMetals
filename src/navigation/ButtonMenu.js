@@ -9,6 +9,7 @@ import {
     Withdraw,
     Redeem
   } from '../components/svgComponents/buttonMenu';
+  import {COLORS} from '../constants/colors';
 
 const LIST = [
     {
@@ -106,7 +107,7 @@ const styles = StyleSheet.create({
     },
     listContainer: {
         alignSelf: 'stretch',
-        backgroundColor: "white",
+        backgroundColor: COLORS.white,
         borderRadius: 14,
         padding: 20,
         marginHorizontal: 24,
@@ -140,7 +141,7 @@ const styles = StyleSheet.create({
         width: 52,
         height: 52,
         borderRadius: 40,
-        backgroundColor: "white",
+        backgroundColor: COLORS.white,
         alignItems: "center",
         justifyContent: "center",
         // shadow
@@ -154,7 +155,7 @@ const styles = StyleSheet.create({
         elevation: 6,
     },
     closeIcon: {
-        color: "#2F80ED",
+        color: COLORS.primary,
     }
   });
 
