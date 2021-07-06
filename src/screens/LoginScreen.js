@@ -2,33 +2,33 @@ import React from 'react';
 import {
   Text,
   View,
-  SafeAreaView,
   StatusBar,
   KeyboardAvoidingView,
+  TouchableOpacity,
+  Platform,
   StyleSheet,
 } from 'react-native';
-import {Input} from 'react-native-elements';
-import {Formik} from 'formik';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { Input } from 'react-native-elements';
+import { Formik } from 'formik';
 import * as Yup from 'yup';
 
-import CustomButtonsBox from '../components/CustomButtonsBox';
-import MainButton from '../components/MainButton';
-import {COLORS} from '../constants/colors';
+import CustomButtonsBox from '@components/CustomButtonsBox';
+import MainButton from '@components/MainButton';
+import { COLORS } from '@constants/colors';
 
 const LoginScreen = () => {
-  const initialValues = {firstName: '', lastName: ''};
+
+  const initialValues = { email: '', password: '' };
   const validationSchema = Yup.object({
-    firstName: Yup.string()
-      .min(2, 'at least 2 symbols')
+    email: Yup.string().email(),
+    password: Yup.string()
+      .min(9, 'at least 9 Characters')
       .max(20, 'must be 20 or less')
-      .required('first name is required'),
-    lastName: Yup.string()
-      .min(2, 'at least 2 symbols')
-      .max(20, 'must be 20 or less')
-      .required('last name is required'),
+      .required('password is required'),
   });
 
-  const handleSubmit = (values, {resetForm}) => {
+  const handleSubmit = (values, { resetForm }) => {
     console.log('users name is:', values);
     resetForm(initialValues);
   };
@@ -36,44 +36,62 @@ const LoginScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar backgroundColor={COLORS.white} barStyle="dark-content" />
-      <View style={styles.titleContainer}>
-        <View style={styles.titleBox}>
+      <View style={styles.container2}>
+
+        <View style={styles.titleContainer}>
           <Text style={styles.headerText}>Log in</Text>
         </View>
+
+        <Formik
+          initialValues={initialValues}
+          validationSchema={validationSchema}
+          onSubmit={handleSubmit}>
+          {({
+            handleSubmit,
+            handleBlur,
+            handleChange,
+            resetForm,
+            values,
+            touched,
+            errors,
+          }) => (
+            <KeyboardAvoidingView
+              behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+              style={styles.inputsBox}
+            >
+              <View style={{ width: '100%' }}>
+                <Input
+                  label='Email'
+                  labelStyle={styles.labelStyle}
+                  placeholder="Your email"
+                  placeholderTextColor={COLORS.grey2}
+                  inputContainerStyle={styles.inputContainerStyle}
+                  containerStyle={{paddingHorizontal: 0}}
+                />
+                <Input
+                  label='Password'
+                  labelStyle={styles.labelStyle}
+                  placeholder="Your password"
+                  placeholderTextColor={COLORS.grey2}
+                  inputContainerStyle={styles.inputContainerStyle}
+                  containerStyle={{paddingHorizontal: 0, marginTop: -10}}
+                />
+                <TouchableOpacity onPress={() => console.log('forgot password')}>
+                  <Text style={styles.redirectText}>Forgot your password?</Text>
+                </TouchableOpacity>
+                <MainButton title="Log in" onPress={() => null} />
+              </View>
+
+            </KeyboardAvoidingView>
+          )}
+        </Formik>
+
+        <CustomButtonsBox />
+
       </View>
-      <Formik
-        initialValues={initialValues}
-        validationSchema={validationSchema}
-        onSubmit={handleSubmit}>
-        {({
-          handleSubmit,
-          handleBlur,
-          handleChange,
-          resetForm,
-          values,
-          touched,
-          errors,
-        }) => (
-          <KeyboardAvoidingView behavior="height" style={styles.inputsBox}>
-            <Input
-              label="First Name"
-              labelStyle={{fontFamily: 'OpenSans-Regular'}}
-              placeholder="Your First Name"
-              placeholderTextColor={COLORS.grey}
-              inputContainerStyle={styles.inputContainer}
-            />
-            <Input
-              label="Last Name"
-              labelStyle={{fontFamily: 'OpenSans-Regular'}}
-              placeholder="Your Last Name"
-              placeholderTextColor={COLORS.grey}
-              inputContainerStyle={styles.inputContainer}
-            />
-            <MainButton title="Log in" onPress={() => null} width={320} />
-          </KeyboardAvoidingView>
-        )}
-      </Formik>
-      <CustomButtonsBox />
+
+
+
     </SafeAreaView>
   );
 };
@@ -81,41 +99,45 @@ const LoginScreen = () => {
 const styles = StyleSheet.create({
   container: {
     width: '100%',
-    height: '100%',
     backgroundColor: COLORS.white,
+  },
+  container2: {
+    height: '100%',
+    paddingHorizontal: 38,
     alignItems: 'center',
     justifyContent: 'space-around',
   },
   titleContainer: {
-    flex: 0.25,
     width: '100%',
-    alignItems: 'flex-start',
-    justifyContent: 'center',
-  },
-  titleBox: {
-    marginLeft: '7%',
-    height: '55%',
-    flexDirection: 'column-reverse',
-    justifyContent: 'space-between',
+    marginTop: 50,
   },
   inputsBox: {
-    flex: 0.4,
-    alignItems: 'center',
-    justifyContent: 'space-around',
+    width: '100%',
   },
-  inputContainer: {
+  inputContainerStyle: {
     borderWidth: 1,
     borderColor: '#bdbdbd',
     borderRadius: 5,
     paddingLeft: 10,
     marginTop: 6,
-    width: 320,
     height: 48,
-    justifyContent: 'center',
   },
   headerText: {
     fontFamily: 'OpenSans-SemiBold',
     fontSize: 36,
+  },
+  redirectText: {
+    color: COLORS.primary,
+    fontFamily: 'OpenSans-SemiBold',
+    fontSize: 16,
+    marginTop: -10,
+    marginBottom: 10
+  },
+  labelStyle: {
+    fontFamily: 'OpenSans-Regular',
+    color: '#828282',
+    fontWeight: '200'
+
   },
 });
 

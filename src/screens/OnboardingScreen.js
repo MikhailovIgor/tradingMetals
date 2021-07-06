@@ -12,9 +12,9 @@ import LinearGradient from 'react-native-linear-gradient';
 import {COLORS} from '../constants/colors';
 import slides from '../utils/mockData/onBoardData';
 import CustomStatusBar from '@components/CustomStatusBar';
-import OnboardingItem from '../components/OnboardingItem';
-import Paginator from '../components/Paginator';
-import MainButton from '../components/MainButton';
+import OnboardingItem from '@components/OnboardingItem';
+import Paginator from '@components/Paginator';
+import MainButton from '@components/MainButton';
 
 const OnboardingScreen = ({navigation}) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -74,7 +74,7 @@ const OnboardingScreen = ({navigation}) => {
       </LinearGradient>
       <View style={styles.footer}>
         <Paginator data={slides} currentSlide={currentIndex} />
-        <MainButton title="Next" onPress={scrollTo} width={320} />
+        <MainButton title="Next" onPress={scrollTo} />
       </View>
     </View>
   );
@@ -102,6 +102,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     alignItems: 'center',
     paddingTop: 5,
+    paddingHorizontal: 38
   },
 });
 

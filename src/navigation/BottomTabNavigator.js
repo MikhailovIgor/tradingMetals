@@ -6,18 +6,18 @@ import {
 } from '@react-navigation/bottom-tabs';
 
 import {COLORS} from '../constants/colors';
-import HomeScreen from '../screens/HomeScreen';
-import PortfolioScreen from '../screens/PortfolioScreen';
-import NullScreen from '../screens/NullScreen';
-import PricesScreen from '../screens/PricesScreen';
-import SettingsScreen from '../screens/SettingsScreen';
+import HomeScreen from '@screens/HomeScreen';
+import PortfolioScreen from '@screens/PortfolioScreen';
+import NullScreen from '@screens/NullScreen';
+import PricesScreen from '@screens/PricesScreen';
+import SettingsScreen from '@screens/SettingsScreen';
 import {
   HomeIcon,
   PortfolioIcon,
   PricesIcon,
   SettingsIcon,
   TabBarCentralButton,
-} from '../components/tabBarComponents';
+} from '@components/tabBarComponents';
 import ButtonMenu from './ButtonMenu';
 
 const Tab = createBottomTabNavigator();

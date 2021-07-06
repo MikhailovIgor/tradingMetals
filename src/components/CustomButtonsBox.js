@@ -26,8 +26,6 @@ const CustomButtonsBox = () => (
 
 const styles = StyleSheet.create({
   customButtonsBox: {
-    flex: 0.4,
-    marginTop: 20,
     alignItems: 'center',
   },
   customButtonsTitle: {
