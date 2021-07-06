@@ -8,6 +8,7 @@ import {
   FlatList,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 import {COLORS} from '../constants/colors';
 import slides from '../utils/mockData/onBoardData';
@@ -45,14 +46,12 @@ const OnboardingScreen = ({navigation}) => {
           barStyle="light-content"
           translucent
         />
-        <View style={{flex: 0.15}}>
+        
           <TouchableOpacity
             style={styles.skipContainer}
             onPress={() => navigation.navigate('welcome')}>
             <Text style={styles.skipButton}>Skip</Text>
           </TouchableOpacity>
-        </View>
-        <View style={{flex: 0.85}}>
           <FlatList
             horizontal
             keyExtractor={item => item.id}
@@ -70,11 +69,10 @@ const OnboardingScreen = ({navigation}) => {
             viewabilityConfig={viewConfig}
             ref={slidesRef}
           />
-        </View>
       </LinearGradient>
       <View style={styles.footer}>
         <Paginator data={slides} currentSlide={currentIndex} />
-        <MainButton title="Next" onPress={scrollTo} width={320} />
+        <MainButton title="Next" onPress={scrollTo} />
       </View>
     </View>
   );
@@ -83,14 +81,19 @@ const OnboardingScreen = ({navigation}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    // width: "100%"
   },
   linearGradient: {
     flex: 0.85,
+    // paddingHorizontal: 37,
   },
   skipContainer: {
-    position: 'absolute',
-    top: 50,
-    right: 30,
+    
+    alignItems: "flex-end",
+    // position: 'absolute',
+    // top: 50,
+    // right: 30,
+    paddingRight: 20,
   },
   skipButton: {
     color: COLORS.white,
@@ -99,9 +102,10 @@ const styles = StyleSheet.create({
   },
   footer: {
     flex: 0.15,
-    justifyContent: 'flex-start',
     alignItems: 'center',
+    justifyContent: 'flex-start',
     paddingTop: 5,
+    paddingHorizontal: 37,
   },
 });
 
