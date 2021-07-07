@@ -8,8 +8,6 @@ import {
   FlatList,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import { SafeAreaView } from 'react-native-safe-area-context';
-
 import {COLORS} from '../constants/colors';
 import slides from '../utils/mockData/onBoardData';
 import CustomStatusBar from '../components/CustomStatusBar';
@@ -46,7 +44,6 @@ const OnboardingScreen = ({navigation}) => {
           barStyle="light-content"
           translucent
         />
-        
           <TouchableOpacity
             style={styles.skipContainer}
             onPress={() => navigation.navigate('welcome')}>
@@ -72,7 +69,7 @@ const OnboardingScreen = ({navigation}) => {
       </LinearGradient>
       <View style={styles.footer}>
         <Paginator data={slides} currentSlide={currentIndex} />
-        <MainButton title="Next" onPress={scrollTo} />
+        <MainButton title="Next" onPress={scrollTo} buttonStyles={styles.footerBtn} />
       </View>
     </View>
   );
@@ -81,19 +78,14 @@ const OnboardingScreen = ({navigation}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // width: "100%"
   },
   linearGradient: {
     flex: 0.85,
-    // paddingHorizontal: 37,
   },
   skipContainer: {
-    
     alignItems: "flex-end",
-    // position: 'absolute',
-    // top: 50,
-    // right: 30,
     paddingRight: 20,
+    marginTop: 20,
   },
   skipButton: {
     color: COLORS.white,
@@ -107,6 +99,9 @@ const styles = StyleSheet.create({
     paddingTop: 5,
     paddingHorizontal: 37,
   },
+  footerBtn: {
+    marginTop: 20
+  }
 });
 
 export default OnboardingScreen;
