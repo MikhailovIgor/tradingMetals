@@ -1,0 +1,32 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "@navigation/*": [
+                "./src/navigation/*"
+            ],
+            "@components/*": [
+                "./src/components/*"
+            ],
+            "@assets/*": [
+                "./src/assets/*"
+            ],
+            "@screens/*": [
+                "./src/screens/*"
+            ],
+            "@images/*": [
+                "./src/assets/images/*"
+            ],
+            "@homeScreenComponents/*": [
+                "./src/components/HomeScreenComponents/*"
+            ],
+            "@signUpSteps/*": [
+                "./src/components/signUpSteps/*"
+            ],
+        }
+    },
+    "exclude": [
+        "node_modules",
+        "dist"
+    ]
+}
