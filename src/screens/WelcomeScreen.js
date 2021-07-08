@@ -5,7 +5,6 @@ import {
   SafeAreaView,
   Image,
   StatusBar,
-  TouchableOpacity,
   StyleSheet,
 } from 'react-native';
 import { Button, CheckBox } from 'react-native-elements';
@@ -43,30 +42,17 @@ const WelcomeScreen = ({ navigation }) => {
         </View>
 
         <View style={styles.agreementContainer}>
-            <CheckBox
-              checked={checked}
-              onPress={() => setChecked(!checked)}
-              containerStyle={styles.checkBoxContainer}
-              // textStyle={{padding: 0, margin: 0}}
-              uncheckedColor={COLORS.primary}
-              checkedColor={COLORS.primary}
-            />
+          <CheckBox
+            checked={checked}
+            onPress={() => setChecked(!checked)}
+            containerStyle={styles.checkBoxContainer}
+            uncheckedColor={COLORS.primary}
+            checkedColor={COLORS.primary}
+          />
           <View style={styles.agreementInfo}>
             <Text style={styles.agreementText}>
-              By creating this account, you agree to our
+              By creating this account, you agree to our <Text style={styles.redirectText} onPress={() => console.log("User Agreement")}>User Agreement</Text> and <Text style={styles.redirectText} onPress={() => console.log("Privacy Policy")}>Privacy Policy</Text>.
             </Text>
-              <TouchableOpacity onPress={() => console.log('navigate to UserAgreement page')}>
-                <Text style={styles.redirectText}>
-                  User Agreement
-                </Text>
-              </TouchableOpacity>
-              <Text style={styles.agreementText}> and </Text>
-              <TouchableOpacity onPress={() => console.log('navigate to privacyPolicy page')}>
-                <Text style={styles.redirectText}>
-                  Privacy Policy.
-                </Text>
-              </TouchableOpacity>
-
           </View>
         </View>
 
@@ -110,16 +96,13 @@ const styles = StyleSheet.create({
     fontSize: 18,
   },
   agreementContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+    flexDirection: "row",
     marginTop: 20,
-    backgroundColor: 'yellow',
   },
   agreementInfo: {
+    flex: 1,
     flexDirection: 'row',
     flexWrap: 'wrap',
-    // marginLeft: -17,
-    // backgroundColor: 'grey',
   },
   agreementText: {
     color: '#333',
@@ -133,12 +116,9 @@ const styles = StyleSheet.create({
     fontSize: 15,
   },
   checkBoxContainer: {
-    // paddingLeft: 0,
-    // paddingTop: 0,
-    // marginLeft: 0,
-    // marginTop: 0, 
     padding: 0,
-    margin: 0,
+    marginTop: 0,
+    marginLeft: 0,
   }
 });
 
