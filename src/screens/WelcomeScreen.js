@@ -21,17 +21,14 @@ const WelcomeScreen = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar backgroundColor={COLORS.white} barStyle="dark-content" />
-      <View style={styles.container2}>
+      <View style={styles.containerInner}>
 
-        <View style={styles.titleContainer}>
+        <View style={styles.containerHeader}>
           <Image source={require('../assets/images/goldX.png')} />
-          <View style={styles.titleBox}>
-            <Text style={styles.headerText}>Welcome</Text>
-            <Text style={styles.headerText}>to GoldX</Text>
-          </View>
+            <Text style={styles.headerText}>{`Welcome\nto GoldX`}</Text>
         </View>
 
-        <View style={styles.mainButtonsContainer}>
+        <View>
           <MainButton
             title="Log in"
             onPress={() => navigation.navigate('login')}
@@ -39,7 +36,6 @@ const WelcomeScreen = ({ navigation }) => {
           <Button
             type="outline"
             title="Create New Account"
-            containerStyle={{ width: '100%' }}
             buttonStyle={styles.createAccButton}
             titleStyle={styles.createAccText}
             onPress={() => navigation.navigate('signUp')}
@@ -51,12 +47,14 @@ const WelcomeScreen = ({ navigation }) => {
               checked={checked}
               onPress={() => setChecked(!checked)}
               containerStyle={styles.checkBoxContainer}
+              // textStyle={{padding: 0, margin: 0}}
+              uncheckedColor={COLORS.primary}
+              checkedColor={COLORS.primary}
             />
           <View style={styles.agreementInfo}>
             <Text style={styles.agreementText}>
               By creating this account, you agree to our
             </Text>
-            <View style={{ flexDirection: 'row' }}>
               <TouchableOpacity onPress={() => console.log('navigate to UserAgreement page')}>
                 <Text style={styles.redirectText}>
                   User Agreement
@@ -68,7 +66,6 @@ const WelcomeScreen = ({ navigation }) => {
                   Privacy Policy.
                 </Text>
               </TouchableOpacity>
-            </View>
 
           </View>
         </View>
@@ -82,29 +79,22 @@ const WelcomeScreen = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   container: {
-    width: '100%',
-    backgroundColor: COLORS.white,
+    backgroundColor: COLORS.white, 
   },
-  container2: {
-    paddingVertical: 50,
+  containerInner: {
     height: '100%',
     paddingHorizontal: 38,
-    alignItems: 'center',
-    justifyContent: 'space-around',
+    justifyContent: 'center',
   },
-  titleContainer: {
-    width: '100%',
-    justifyContent: 'space-between',
-  },
-  titleBox: {
-    paddingVertical: 10,
-  },
-  mainButtonsContainer: {
-    width: '100%',
+  containerHeader: {
+    paddingBottom: 40,
   },
   headerText: {
     fontFamily: 'OpenSans-SemiBold',
     fontSize: 36,
+    color: COLORS.titlesText,
+    lineHeight: 44, 
+    paddingVertical: 10,
   },
   createAccButton: {
     backgroundColor: COLORS.white,
@@ -112,7 +102,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 5,
     height: 46,
-    marginTop: 22,
+    marginTop: 20,
   },
   createAccText: {
     color: COLORS.primary,
@@ -120,20 +110,22 @@ const styles = StyleSheet.create({
     fontSize: 18,
   },
   agreementContainer: {
-    width: '100%',
     flexDirection: 'row',
-    paddingLeft: 0,
-    paddingTop: 0,
-    marginTop: -10,
+    justifyContent: 'space-between',
+    marginTop: 20,
+    backgroundColor: 'yellow',
   },
   agreementInfo: {
-    flexDirection: 'column',
-    marginLeft: -17,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    // marginLeft: -17,
+    // backgroundColor: 'grey',
   },
   agreementText: {
     color: '#333',
     fontFamily: 'OpenSans-Regular',
     fontSize: 15,
+    lineHeight: 22,
   },
   redirectText: {
     color: COLORS.primary,
@@ -141,11 +133,12 @@ const styles = StyleSheet.create({
     fontSize: 15,
   },
   checkBoxContainer: {
-    paddingLeft: 0,
-    paddingTop: 0,
-    marginLeft: 0,
-    marginTop: 0, 
-    borderColor: 'blue',
+    // paddingLeft: 0,
+    // paddingTop: 0,
+    // marginLeft: 0,
+    // marginTop: 0, 
+    padding: 0,
+    margin: 0,
   }
 });
 

@@ -4,7 +4,7 @@ import {Button} from 'react-native-elements';
 
 import {COLORS} from '../constants/colors';
 
-const MainButton = ({title, onPress, width}) => (
+const MainButton = ({title, onPress, }) => (
   <Button
     containerStyle={styles.containerStyle}
     buttonStyle={styles.button}

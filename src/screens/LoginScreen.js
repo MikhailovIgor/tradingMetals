@@ -29,18 +29,16 @@ const LoginScreen = () => {
   });
 
   const handleSubmit = (values, { resetForm }) => {
-    console.log('users name is:', values);
+    console.log(values);
     resetForm(initialValues);
   };
 
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar backgroundColor={COLORS.white} barStyle="dark-content" />
-      <View style={styles.container2}>
+      <View style={styles.containerInner}>
 
-        <View style={styles.titleContainer}>
-          <Text style={styles.headerText}>Log in</Text>
-        </View>
+        <Text style={styles.headerText}>Log in</Text>
 
         <Formik
           initialValues={initialValues}
@@ -59,12 +57,12 @@ const LoginScreen = () => {
               behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
               style={styles.inputsBox}
             >
-              <View style={{ width: '100%' }}>
+              <View style={styles.inputsBox}>
                 <Input
                   label='Email'
                   labelStyle={styles.labelStyle}
                   placeholder="Your email"
-                  placeholderTextColor={COLORS.grey2}
+                  placeholderTextColor={COLORS.silver}
                   inputContainerStyle={styles.inputContainerStyle}
                   containerStyle={{paddingHorizontal: 0}}
                 />
@@ -72,9 +70,9 @@ const LoginScreen = () => {
                   label='Password'
                   labelStyle={styles.labelStyle}
                   placeholder="Your password"
-                  placeholderTextColor={COLORS.grey2}
+                  placeholderTextColor={COLORS.silver}
                   inputContainerStyle={styles.inputContainerStyle}
-                  containerStyle={{paddingHorizontal: 0, marginTop: -10}}
+                  containerStyle={{paddingHorizontal: 0}}
                 />
                 <TouchableOpacity onPress={() => console.log('forgot password')}>
                   <Text style={styles.redirectText}>Forgot your password?</Text>
@@ -89,30 +87,22 @@ const LoginScreen = () => {
         <CustomButtonsBox />
 
       </View>
-
-
-
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    width: '100%',
     backgroundColor: COLORS.white,
   },
-  container2: {
+  containerInner: {
     height: '100%',
     paddingHorizontal: 38,
-    alignItems: 'center',
-    justifyContent: 'space-around',
-  },
-  titleContainer: {
-    width: '100%',
-    marginTop: 50,
+    justifyContent: 'center',
   },
   inputsBox: {
     width: '100%',
+    paddingTop: 20,
   },
   inputContainerStyle: {
     borderWidth: 1,
@@ -122,6 +112,10 @@ const styles = StyleSheet.create({
     marginTop: 6,
     height: 48,
   },
+  titleContainer: {
+    width: '100%',
+    
+  },
   headerText: {
     fontFamily: 'OpenSans-SemiBold',
     fontSize: 36,
@@ -130,7 +124,6 @@ const styles = StyleSheet.create({
     color: COLORS.primary,
     fontFamily: 'OpenSans-SemiBold',
     fontSize: 16,
-    marginTop: -10,
     marginBottom: 10
   },
   labelStyle: {

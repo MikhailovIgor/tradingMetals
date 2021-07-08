@@ -19,6 +19,7 @@ import {
   TabBarCentralButton,
 } from '@components/tabBarComponents';
 import ButtonMenu from './ButtonMenu';
+import { isIphoneX } from '../utils/isIphoneX';
 
 const Tab = createBottomTabNavigator();
 const activeTintColor = COLORS.primary;
@@ -47,7 +48,7 @@ const BottomTabNavigator = () => {
       tabBar={props => (
         <View style={styles.navigatorContainer}>
           <BottomTabBar {...props} />
-          {Platform.OS === 'ios' && <View style={styles.iosFillLine} />}
+          {isIphoneX && <View style={styles.iosFillLine} />}
         </View>
       )}
       tabBarOptions={{

@@ -89,7 +89,7 @@ const HomeBlueHeader = () => {
             style={{
               fontFamily: 'OpenSans-Regular',
               fontSize: 18,
-              color: '#fff',
+              color: COLORS.white,
             }}>
             Cash Balance:
           </Text>
@@ -98,7 +98,7 @@ const HomeBlueHeader = () => {
               fontFamily: 'OpenSans-SemiBold',
               fontWeight: '800',
               fontSize: 22,
-              color: '#fff',
+              color: COLORS.white,
             }}>
             $1,084.10 USD
           </Text>
@@ -108,7 +108,7 @@ const HomeBlueHeader = () => {
             style={{
               fontFamily: 'OpenSans-Regular',
               fontSize: 18,
-              color: '#fff',
+              color: COLORS.white,
             }}>
             Metal Holdings:
           </Text>
@@ -117,7 +117,7 @@ const HomeBlueHeader = () => {
               fontFamily: 'OpenSans-SemiBold',
               fontWeight: '800',
               fontSize: 22,
-              color: '#fff',
+              color: COLORS.white,
             }}>
             $755.30 USD
           </Text>
