@@ -9,6 +9,7 @@
     "no-trailing-spaces": "off",
     "prettier/prettier": ["warn", { "endOfLine": "lf" }],
     "react-native/no-inline-styles": "off",
-    "spaced-comment": "warn"
+    "spaced-comment": "warn",
+    "import/no-default-export": "warn"
   }
 }
