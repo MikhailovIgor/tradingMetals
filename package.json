@@ -58,8 +58,12 @@
     "react-test-renderer": "17.0.1",
     "typescript": "^4.3.5"
   },
-  "jest": {
-    "preset": "react-native"
+  "husky": {
+    "hooks": {
+      "post-merge": "pull-lock",
+      "pre-commit": "lint-staged",
+      "pre-push": "yarn type-check"
+    }
   },
   "lint-staged": {
     "*.@(ts|tsx)": [
@@ -70,21 +74,14 @@
       "yarn prettier-write"
     ]
   },
+  "pull-lock": {
+    "yarn.lock": "yarn install"
+  },
   "prettier": {
     "printWidth": 120,
     "semi": false,
     "singleQuote": false,
     "trailingComma": "es5",
     "bracketSpacing": true
-  },
-  "husky": {
-    "hooks": {
-      "post-merge": "pull-lock",
-      "pre-commit": "lint-staged",
-      "pre-push": "yarn type-check"
-    }
-  },
-  "pull-lock": {
-    "yarn.lock": "yarn install"
   }
 }
