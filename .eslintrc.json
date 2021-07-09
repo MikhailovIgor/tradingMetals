@@ -1,10 +1,11 @@
 {
   "root": true,
-  "extends": ["@react-native-community","plugin:import/warnings"],
+  "extends": ["@react-native-community", "plugin:import/warnings"],
   "rules": {
     "semi": 0,
     "quotes": 0,
     "@typescript-eslint/no-unused-vars": ["warn"],
+    "no-unused-vars": "off",
     "no-trailing-spaces": "off",
     "prettier/prettier": ["warn", { "endOfLine": "lf" }],
     "react-native/no-inline-styles": "off",
