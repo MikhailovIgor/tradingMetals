@@ -7,7 +7,7 @@
     "@typescript-eslint/no-unused-vars": ["warn"],
     "no-unused-vars": "off",
     "no-trailing-spaces": "off",
-    "prettier/prettier": ["warn", { "endOfLine": "lf" }],
+    "prettier/prettier": ["warn", { "endOfLine": "auto" }],
     "react-native/no-inline-styles": "off",
     "spaced-comment": "warn",
     "import/no-default-export": "warn"
