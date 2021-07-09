@@ -2,6 +2,7 @@ export const COLORS = {
   primary: '#2f80ed',
   black: '#000',
   titlesText: '#050F19',
+  ordinaryText: '#333',
   grey: '#95acca',
   silver: '#bdbdbd',
   white: '#fff',

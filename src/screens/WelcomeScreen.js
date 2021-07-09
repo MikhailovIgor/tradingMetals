@@ -119,6 +119,7 @@ const styles = StyleSheet.create({
     padding: 0,
     marginTop: 0,
     marginLeft: 0,
+    marginRight: 0,
   }
 });
 
