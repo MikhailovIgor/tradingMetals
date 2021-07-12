@@ -1,6 +1,7 @@
 {
   "root": true,
   "extends": ["@react-native-community", "plugin:import/warnings"],
+  "plugins": ["prefer-arrow"],
   "rules": {
     "semi": 0,
     "quotes": 0,
@@ -10,6 +11,14 @@
     "prettier/prettier": ["warn", { "endOfLine": "auto" }],
     "react-native/no-inline-styles": "off",
     "spaced-comment": "warn",
-    "import/no-default-export": "warn"
+    "import/no-default-export": "warn",
+    "prefer-arrow/prefer-arrow-functions": [
+      "warn",
+      {
+        "disallowPrototype": true,
+        "singleReturnOnly": false,
+        "classPropertiesAllowed": false
+      }
+    ]
   }
 }
