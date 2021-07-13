@@ -6,6 +6,7 @@ import {
   Animated,
   Text,
   StyleSheet,
+  Platform,
   FlatList,
   KeyboardAvoidingView,
 } from 'react-native';
@@ -43,7 +44,7 @@ const SignUpScreen = ({ navigation }) => {
   };
 
   ///////////
-  const initialValues = {firstName: '', lastName: ''};
+  const initialValues = { firstName: '', lastName: '' };
   const validationSchema = Yup.object({
     firstName: Yup.string()
       .min(2, 'at least 2 symbols')
@@ -63,60 +64,11 @@ const SignUpScreen = ({ navigation }) => {
         translucent
         backgroundColor={'transparent'}
       />
-      <View style={styles.containerInner}>
-        <View>
-          <Text style={styles.titleText}>
-            {`Your Name\nand Last Name`}
-          </Text>
-          <Text style={styles.description}>
-            {`Please enter your legal name that will\nbe associated with your account`}
-          </Text>
-        </View>
-        <Formik
-      initialValues={initialValues}
-      validationSchema={validationSchema}
-      onSubmit={handleSubmit}>
-      {({
-        handleSubmit,
-        handleBlur,
-        handleChange,
-        resetForm,
-        values,
-        touched,
-        errors,
-      }) => (
-        <KeyboardAvoidingView
-        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-        style={styles.inputsBox}>
-          <Input
-            label="First Name"
-            labelStyle={styles.labelStyle}
-            placeholder="Your First Name"
-            placeholderTextColor={COLORS.silver}
-            inputContainerStyle={styles.inputContainerStyle}
-            onChangeText={handleChange('firstName')}
-            onBlur={handleBlur('firstName')}
-            value={values.firstName}
-            errorStyle={{color: 'red'}}
-            containerStyle={styles.containerStyle}
-          />
-          <Input
-            label="Last Name"
-            labelStyle={styles.labelStyle}
-            placeholder="Your Last Name"
-            placeholderTextColor={COLORS.silver}
-            inputContainerStyle={styles.inputContainerStyle}
-            onChangeText={handleChange('lastName')}
-            onBlur={handleBlur('lastName')}
-            value={values.lastName}
-            errorStyle={{color: 'red'}}
-            containerStyle={styles.containerStyle}
-          />
-        </KeyboardAvoidingView>
-      )}
-    </Formik>
-
-
+      <KeyboardAvoidingView
+          behavior={Platform.OS === 'ios' ? 'padding' : ''}
+          style={styles.containerInner}
+      >
+      {/* <View style={styles.containerInner}> */}
         {/* <FlatList
           horizontal
           keyExtractor={item => item.id}
@@ -136,25 +88,106 @@ const SignUpScreen = ({ navigation }) => {
           ref={slidesRef}
           scrollEnabled={false}
         /> */}
+        {/* //////////// SignUp Item is there */}
 
+          <View style={styles.infoContainer}>
+            <Text style={styles.titleText}>
+              {`Your Name\nand Last Name`}
+            </Text>
+            <Text style={styles.description}>
+              {`Please enter your legal name that will\nbe associated with your account`}
+            </Text>
+          </View>
+
+          <Formik
+            initialValues={initialValues}
+            validationSchema={validationSchema}
+            onSubmit={handleSubmit}>
+            {({
+              handleSubmit,
+              handleBlur,
+              handleChange,
+              resetForm,
+              values,
+              touched,
+              errors,
+            }) => (
+
+              <View style={styles.inputsBox}>
+
+                <Input
+                  label="First Name"
+                  labelStyle={styles.labelStyle}
+                  placeholder="Your First Name"
+                  placeholderTextColor={COLORS.silver}
+                  inputContainerStyle={styles.inputContainerStyle}
+                  onChangeText={handleChange('firstName')}
+                  onBlur={handleBlur('firstName')}
+                  value={values.firstName}
+                  errorStyle={{ color: 'red' }}
+                  containerStyle={styles.containerStyle}
+                />
+                <Input
+                  label="Last Name"
+                  labelStyle={styles.labelStyle}
+                  placeholder="Your Last Name"
+                  placeholderTextColor={COLORS.silver}
+                  inputContainerStyle={styles.inputContainerStyle}
+                  onChangeText={handleChange('lastName')}
+                  onBlur={handleBlur('lastName')}
+                  value={values.lastName}
+                  errorStyle={{ color: 'red' }}
+                  containerStyle={styles.containerStyle}
+                />
+
+              </View>
+
+            )}
+          </Formik>
+
+          {/* ////////the end of SignUp item */}
         <View style={styles.footer}>
           <Paginator data={slides} currentSlide={currentIndex} />
           <MainButton title="Continue" onPress={scrollTo} />
         </View>
 
-      </View>
+       {/* </View> */}
+      </KeyboardAvoidingView>
     </SafeAreaView>
   );
 };
-
+{/* <FlatList
+          horizontal
+          keyExtractor={item => item.id}
+          data={slides}
+          renderItem={({ item }) => (
+            <SignUpItem item={item} handleSubmit={handleSubmit} />
+          )}
+          pagingEnabled
+          showsHorizontalScrollIndicator={false}
+          onScroll={Animated.event(
+            [{ nativeEvent: { contentOffset: { x: scrollX } } }],
+            { useNativeDriver: false },
+          )}
+          scrollEventThrottle={32}
+          onViewableItemsChanged={viewableItemsChanged}
+          viewabilityConfig={viewConfig}
+          ref={slidesRef}
+          scrollEnabled={false}
+        /> */}
 const styles = StyleSheet.create({
   container: {
     backgroundColor: COLORS.white,
+    flex: 1,
   },
   containerInner: {
     height: '100%',
     paddingHorizontal: 38,
     justifyContent: 'center',
+  },
+  infoContainer: {
+    marginBottom: 60,
+    paddingTop: Platform.OS === 'ios' ? 80 : null,
   },
   titleText: {
     color: COLORS.titlesText,
@@ -185,16 +218,14 @@ const styles = StyleSheet.create({
   },
   footer: {
     alignItems: 'center',
-    backgroundColor: 'yellow',
-    paddingBottom: 72,
-    
+    paddingTop: 5,
   },
   inputsBox: {
-    backgroundColor: 'lightgrey',
+    marginBottom: 160,
   },
   containerStyle: {
+    paddingHorizontal: 0,
     width: '100%',
-    backgroundColor: 'green'
   }
 });
 

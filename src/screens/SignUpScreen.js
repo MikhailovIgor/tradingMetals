@@ -59,6 +59,7 @@ const SignUpScreen = ({navigation}) => {
               <SignUpItem item={item} handleSubmit={handleSubmit} />
             )}
             pagingEnabled
+            scrollEnabled={false}
             showsHorizontalScrollIndicator={false}
             onScroll={Animated.event(
               [{nativeEvent: {contentOffset: {x: scrollX}}}],
