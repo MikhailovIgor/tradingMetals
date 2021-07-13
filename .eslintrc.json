@@ -4,11 +4,11 @@
   "plugins": ["prefer-arrow"],
   "rules": {
     "semi": 0,
-    "quotes": 0,
     "@typescript-eslint/no-unused-vars": ["warn"],
     "no-unused-vars": "off",
     "no-trailing-spaces": "off",
-    "prettier/prettier": ["warn", { "endOfLine": "auto" }],
+    "prettier/prettier": ["warn", { "endOfLine": "auto", "jsxSingleQuote": true, "singleQuote": true }],
+    "jsx-quotes": ["warn", "prefer-single"],
     "react-native/no-inline-styles": "off",
     "spaced-comment": "warn",
     "import/no-default-export": "warn",

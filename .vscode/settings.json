@@ -3,9 +3,7 @@
     "*.tsx": "javascriptreact",
     "*.snap": "javascriptreact"
   },
-  "editor.formatOnSave": true,
   "files.trimTrailingWhitespace": true,
-  "prettier.singleQuote": false,
   "prettier.trailingComma": "es5",
   "prettier.semi": false,
   "prettier.printWidth": 120,
