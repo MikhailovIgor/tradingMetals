@@ -14,7 +14,7 @@ module.exports = {
       },
     }),
   },
-};
+}
 
 //a piece of code from react-native-svg
 
