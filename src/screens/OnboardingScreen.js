@@ -8,7 +8,6 @@ import {
   FlatList,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-
 import {COLORS} from '../constants/colors';
 import slides from '../utils/mockData/onBoardData';
 import CustomStatusBar from '@components/CustomStatusBar';
@@ -45,14 +44,11 @@ const OnboardingScreen = ({navigation}) => {
           barStyle="light-content"
           translucent
         />
-        <View style={{flex: 0.15}}>
           <TouchableOpacity
             style={styles.skipContainer}
             onPress={() => navigation.navigate('welcome')}>
             <Text style={styles.skipButton}>Skip</Text>
           </TouchableOpacity>
-        </View>
-        <View style={{flex: 0.85}}>
           <FlatList
             horizontal
             keyExtractor={item => item.id}
@@ -70,11 +66,10 @@ const OnboardingScreen = ({navigation}) => {
             viewabilityConfig={viewConfig}
             ref={slidesRef}
           />
-        </View>
       </LinearGradient>
       <View style={styles.footer}>
         <Paginator data={slides} currentSlide={currentIndex} />
-        <MainButton title="Next" onPress={scrollTo} />
+        <MainButton title="Next" onPress={scrollTo} buttonStyles={styles.footerBtn} />
       </View>
     </View>
   );
@@ -88,9 +83,9 @@ const styles = StyleSheet.create({
     flex: 0.85,
   },
   skipContainer: {
-    position: 'absolute',
-    top: 50,
-    right: 30,
+    alignItems: "flex-end",
+    paddingRight: 20,
+    marginTop: 20,
   },
   skipButton: {
     color: COLORS.white,
@@ -99,11 +94,14 @@ const styles = StyleSheet.create({
   },
   footer: {
     flex: 0.15,
-    justifyContent: 'flex-start',
     alignItems: 'center',
+    justifyContent: 'flex-start',
     paddingTop: 5,
-    paddingHorizontal: 38
+    paddingHorizontal: 38,
   },
+  footerBtn: {
+    marginTop: 20
+  }
 });
 
 export default OnboardingScreen;

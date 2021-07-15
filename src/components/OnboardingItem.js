@@ -8,13 +8,13 @@ const OnboardingItem = ({item}) => {
 
   return (
     <View style={[styles.container, {width}]}>
-      <View style={{height: '35%', width: '86%'}}>
+      <View style={styles.textContainer}>
         <Image source={require('../assets/images/goldX-white.png')} />
         <Text style={styles.titleText}>{item.title}</Text>
         <Text style={styles.description}>{item.description}</Text>
       </View>
-      <View style={{height: '65%'}}>
-        <Image source={item.image} style={{bottom: -50}} />
+      <View style={styles.imageContainer}>
+        <Image source={item.image} style={styles.imageStyle} />
       </View>
     </View>
   );
@@ -22,9 +22,14 @@ const OnboardingItem = ({item}) => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 0.5,
-    justifyContent: 'center',
+    flex: 1,
     alignItems: 'center',
+    paddingTop: 10,
+  },
+  textContainer: {
+    flex: 0.4, 
+    paddingHorizontal: 37,
+    // flex: 1, paddingHorizontal: 37, justifyContent: "center",
   },
   titleText: {
     color: COLORS.white,
@@ -38,8 +43,14 @@ const styles = StyleSheet.create({
     fontFamily: 'OpenSans-SemiBold',
     fontWeight: '100',
     fontSize: 16,
-    // marginBottom: 15,
   },
+  imageContainer: {
+    flex: 0.65,
+    // flex: 1, 
+  },
+  imageStyle: {
+    bottom: -50
+  }
 });
 
 export default OnboardingItem;
