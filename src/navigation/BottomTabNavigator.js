@@ -6,19 +6,20 @@ import {
 } from '@react-navigation/bottom-tabs';
 
 import {COLORS} from '../constants/colors';
-import HomeScreen from '../screens/HomeScreen';
-import PortfolioScreen from '../screens/PortfolioScreen';
-import NullScreen from '../screens/NullScreen';
-import PricesScreen from '../screens/PricesScreen';
-import SettingsScreen from '../screens/SettingsScreen';
+import HomeScreen from '@screens/HomeScreen';
+import PortfolioScreen from '@screens/PortfolioScreen';
+import NullScreen from '@screens/NullScreen';
+import PricesScreen from '@screens/PricesScreen';
+import SettingsScreen from '@screens/SettingsScreen';
 import {
   HomeIcon,
   PortfolioIcon,
   PricesIcon,
   SettingsIcon,
   TabBarCentralButton,
-} from '../components/tabBarComponents';
+} from '@components/tabBarComponents';
 import ButtonMenu from './ButtonMenu';
+import { isIphoneX } from '../utils/isIphoneX';
 
 const Tab = createBottomTabNavigator();
 const activeTintColor = COLORS.primary;
@@ -47,7 +48,7 @@ const BottomTabNavigator = () => {
       tabBar={props => (
         <View style={styles.navigatorContainer}>
           <BottomTabBar {...props} />
-          {Platform.OS === 'ios' && <View style={styles.iosFillLine} />}
+          {isIphoneX && <View style={styles.iosFillLine} />}
         </View>
       )}
       tabBarOptions={{

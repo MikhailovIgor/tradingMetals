@@ -23,6 +23,12 @@
             "@signUpSteps/*": [
                 "./src/components/signUpSteps/*"
             ],
+            "@constants/*": [
+                "./src/constants/*"
+            ],
+            "@mockData/*": [
+                "./src/utils/mockData/*"
+            ],
         }
     },
     "exclude": [

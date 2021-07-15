@@ -22,6 +22,8 @@ module.exports = {
           '@components': './src/components',
           '@homeScreenComponents': './src/components/HomeScreenComponents',
           '@signUpSteps': './src/components/signUpSteps',
+          '@mockData': './src/utils/mockData',
+          '@constants': './src/constants',
         }
       }
     ]

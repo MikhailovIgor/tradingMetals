@@ -4,15 +4,19 @@ import {Button} from 'react-native-elements';
 
 import {COLORS} from '../constants/colors';
 
-const MainButton = ({title, onPress, width}) => (
+const MainButton = ({title, onPress, }) => (
   <Button
-    buttonStyle={[styles.button, {width: width}]}
+    containerStyle={styles.containerStyle}
+    buttonStyle={styles.button}
     titleStyle={styles.title}
     title={title}
     onPress={onPress}
   />
 );
 const styles = StyleSheet.create({
+  containerStyle: {
+    width: '100%',
+  },
   button: {
     backgroundColor: COLORS.primary,
     borderRadius: 5,

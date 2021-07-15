@@ -1,6 +1,6 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-import Icon from 'react-native-vector-icons/SimpleLineIcons';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 import MainButton from '../components/MainButton';
 import {COLORS} from '../constants/colors';
@@ -18,7 +18,7 @@ const VerCompleteScreen = ({navigation}) => {
           <Text style={styles.title}>Verification</Text>
           <Text style={styles.title}>Complete</Text>
         </View>
-        <Icon name="check" color="#2f80ed" size={80} />
+        <Icon name="checkmark-circle" color={COLORS.primary} size={90} />
       </View>
       <MainButton title="Next" onPress={() => null} />
     </View>

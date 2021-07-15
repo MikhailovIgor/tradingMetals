@@ -1,8 +1,8 @@
 import React from 'react';
 import {Text, View, Platform, StyleSheet} from 'react-native';
 
-import newsData from '../../utils/mockData/newsData';
-import ViewMore from './ViewMore';
+import newsData from '@mockData/newsData';
+import ViewMore from '@homeScreenComponents/ViewMore';
 
 const RecentActivityList = ({onPress}) => {
   const size = 4;
