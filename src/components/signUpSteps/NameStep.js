@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, StyleSheet} from 'react-native';
+import {KeyboardAvoidingView, StyleSheet} from 'react-native';
 import {Input} from 'react-native-elements';
 import {Formik} from 'formik';
 import * as Yup from 'yup';
@@ -34,12 +34,14 @@ const NameStep = ({handleSubmit}) => {
         touched,
         errors,
       }) => (
-        <>
+        <KeyboardAvoidingView
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        style={styles.inputsBox}>
           <Input
             label="First Name"
             labelStyle={styles.labelStyle}
             placeholder="Your First Name"
-            placeholderTextColor={COLORS.grey}
+            placeholderTextColor={COLORS.silver}
             inputContainerStyle={styles.inputContainerStyle}
             onChangeText={handleChange('firstName')}
             onBlur={handleBlur('firstName')}
@@ -51,7 +53,7 @@ const NameStep = ({handleSubmit}) => {
             label="Last Name"
             labelStyle={styles.labelStyle}
             placeholder="Your Last Name"
-            placeholderTextColor={COLORS.grey}
+            placeholderTextColor={COLORS.silver}
             inputContainerStyle={styles.inputContainerStyle}
             onChangeText={handleChange('lastName')}
             onBlur={handleBlur('lastName')}
@@ -59,7 +61,7 @@ const NameStep = ({handleSubmit}) => {
             errorStyle={{color: 'red'}}
             containerStyle={styles.containerStyle}
           />
-        </>
+        </KeyboardAvoidingView>
       )}
     </Formik>
   );
@@ -67,20 +69,22 @@ const NameStep = ({handleSubmit}) => {
 
 const styles = StyleSheet.create({
   labelStyle: {
-    color: '#828282',
+    color: COLORS.iconGrey,
     fontFamily: 'OpenSans-Regular',
+    fontSize: 16,
+    lineHeight: 20,
     paddingBottom: 5,
   },
   inputContainerStyle: {
-    borderColor: '#bdbdbd',
+    borderColor: COLORS.silver,
     borderWidth: 1,
     borderRadius: 5,
-    width: '100%',
     height: 47,
     paddingLeft: 10,
   },
-  containerStyle: {
-    height: 86,
+  containerStyle: {backgroundColor: 'tomato'},
+  inputsBox: {
+    // width: '100%',
   },
 });
 

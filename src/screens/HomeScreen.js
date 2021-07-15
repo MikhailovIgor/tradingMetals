@@ -1,12 +1,13 @@
 import React from 'react';
 import {ScrollView, StatusBar, View, StyleSheet} from 'react-native';
 
-import HomeBlueHeader from '../components/HomeScreenComponents/HomeBlueHeader';
-import MetalPersonalInfoCard from '../components/HomeScreenComponents/MetalPersonalInfoCard';
-import ColoredCard from '../components/HomeScreenComponents/ColoredCard';
-import RecentActivityList from '../components/HomeScreenComponents/RecentActivityList';
-import MarketNewsList from '../components/HomeScreenComponents/MarketNewsList';
-import {COLORS} from '../constants/colors';
+import MarketNewsList from '@components/MarketNewsList';
+import {
+  HomeBlueHeader,
+  MetalPersonalInfoCard,
+  ColoredCard,
+  RecentActivityList,
+} from '@homeScreenComponents';
 
 const HomeScreen = () => {
   return (

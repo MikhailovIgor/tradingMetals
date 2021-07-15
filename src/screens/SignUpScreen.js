@@ -11,9 +11,9 @@ import {
 } from 'react-native';
 
 import slides from '../utils/mockData/signUpData';
-import MainButton from '../components/MainButton';
-import SignUpItem from '../components/SignUpItem';
-import Paginator from '../components/Paginator';
+import MainButton from '@components/MainButton';
+import SignUpItem from '@components/SignUpItem';
+import Paginator from '@components/Paginator';
 import {COLORS} from '../constants/colors';
 
 const SignUpScreen = ({navigation}) => {
@@ -59,6 +59,7 @@ const SignUpScreen = ({navigation}) => {
               <SignUpItem item={item} handleSubmit={handleSubmit} />
             )}
             pagingEnabled
+            scrollEnabled={false}
             showsHorizontalScrollIndicator={false}
             onScroll={Animated.event(
               [{nativeEvent: {contentOffset: {x: scrollX}}}],
@@ -72,7 +73,7 @@ const SignUpScreen = ({navigation}) => {
         </View>
         <View style={styles.footer}>
           <Paginator data={slides} currentSlide={currentIndex} />
-          <MainButton title="Continue" onPress={scrollTo} width={320} />
+          <MainButton title="Continue" onPress={scrollTo} />
         </View>
       </SafeAreaView>
     </KeyboardAvoidingView>
@@ -95,6 +96,7 @@ const styles = StyleSheet.create({
     flex: 0.2,
     justifyContent: 'center',
     alignItems: 'center',
+    paddingHorizontal: 38,
   },
 });
 

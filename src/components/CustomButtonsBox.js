@@ -26,14 +26,14 @@ const CustomButtonsBox = () => (
 
 const styles = StyleSheet.create({
   customButtonsBox: {
-    flex: 0.4,
-    marginTop: 20,
     alignItems: 'center',
+    paddingTop: 32,
   },
   customButtonsTitle: {
     color: '#333',
     fontFamily: 'OpenSans-SemiBold',
     fontSize: 20,
+    lineHeight: 24,
   },
 });
 
