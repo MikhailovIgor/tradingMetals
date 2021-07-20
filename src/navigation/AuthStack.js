@@ -4,6 +4,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import OnboardingScreen from '../screens/OnboardingScreen';
 import WelcomeScreen from '../screens/WelcomeScreen';
 import LoginScreen from '../screens/LoginScreen';
+import ForgotPasswordScreen from '../screens/ForgotPasswordScreen';
 import SignUpScreen from '../screens/SignUpScreenV2';
 import VerCompleteScreen from '../screens/VerCompleteScreen';
 
@@ -24,6 +25,11 @@ const AuthStack = () => (
     <Stack.Screen
       name="login"
       component={LoginScreen}
+      options={{headerShown: false}}
+    />
+    <Stack.Screen
+      name="forgotPassword"
+      component={ForgotPasswordScreen}
       options={{headerShown: false}}
     />
     <Stack.Screen
