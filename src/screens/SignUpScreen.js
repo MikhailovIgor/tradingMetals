@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React, {useState, useRef} from 'react';
 import {
   SafeAreaView,
@@ -32,7 +33,7 @@ const SignUpScreen = ({navigation}) => {
   };
 
   const scrollTo = values => {
-    // handleSubmit(values);
+    handleSubmit(values);
     if (currentIndex < slides.length - 1) {
       slidesRef.current.scrollToIndex({index: currentIndex + 1});
     } else {
@@ -41,16 +42,13 @@ const SignUpScreen = ({navigation}) => {
   };
 
   return (
-    <KeyboardAvoidingView
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-      style={{flex: 1}}>
       <SafeAreaView style={styles.container}>
         <StatusBar
           barStyle="dark-content"
           translucent
           backgroundColor={'transparent'}
         />
-        <View style={styles.multiStep}>
+        <View style={styles.containerInner}>
           <FlatList
             horizontal
             keyExtractor={item => item.id}
@@ -70,33 +68,29 @@ const SignUpScreen = ({navigation}) => {
             viewabilityConfig={viewConfig}
             ref={slidesRef}
           />
-        </View>
-        <View style={styles.footer}>
-          <Paginator data={slides} currentSlide={currentIndex} />
-          <MainButton title="Continue" onPress={scrollTo} />
+          <View style={styles.footer}>
+            <Paginator data={slides} currentSlide={currentIndex} />
+            <MainButton title="Continue" onPress={scrollTo} />
+          </View>
         </View>
       </SafeAreaView>
-    </KeyboardAvoidingView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'space-around',
-    // alignItems: 'center',
     backgroundColor: COLORS.white,
   },
-  multiStep: {
-    flex: 0.8,
-    // justifyContent: 'center',
-    // alignItems: 'center',
+  containerInner: {
+    height: '100%',
+    justifyContent: 'center',
+    paddingHorizontal: 38,
   },
   footer: {
-    flex: 0.2,
-    justifyContent: 'center',
+    // flex: 0.2,
+    // justifyContent: 'center',
     alignItems: 'center',
-    paddingHorizontal: 38,
+    // paddingHorizontal: 38,
   },
 });
 

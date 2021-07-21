@@ -1,6 +1,5 @@
 import React from 'react';
 import NameStep from '../../components/signUpSteps/NameStep';
-import CountryStep from '../../components/signUpSteps/CountryStep';
 import EmailStep from '../../components/signUpSteps/EmailStep';
 import PasswordStep from '../../components/signUpSteps/PasswordStep';
 import MobileVerStep from '../../components/signUpSteps/MobileVerStep';
