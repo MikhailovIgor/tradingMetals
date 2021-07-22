@@ -5,7 +5,7 @@ import OnboardingScreen from '../screens/OnboardingScreen';
 import WelcomeScreen from '../screens/WelcomeScreen';
 import LoginScreen from '../screens/LoginScreen';
 import ForgotPasswordScreen from '../screens/ForgotPasswordScreen';
-import SignUpScreen from '../screens/SignUpScreenV2';
+import SignUpScreen from '../screens/SignUpScreen';
 import VerCompleteScreen from '../screens/VerCompleteScreen';
 
 const Stack = createStackNavigator();

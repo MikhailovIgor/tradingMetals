@@ -1,13 +1,18 @@
 import React from 'react';
 import {TouchableOpacity, Image, StyleSheet} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 
-const CustomButton = ({imagePath, width, height}) => (
-  <TouchableOpacity
-    style={styles.container}
-    onPress={() => null}>
-    <Image source={imagePath} style={{width: width, height: height}} />
-  </TouchableOpacity>
-);
+const CustomButton = ({imagePath, width, height, screenName}) => {
+  const navigation = useNavigation();
+
+  return (
+    <TouchableOpacity
+      style={styles.container}
+      onPress={() => navigation.navigate(screenName)}>
+      <Image source={imagePath} style={{width: width, height: height}} />
+    </TouchableOpacity>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {

@@ -27,23 +27,33 @@ const ForgotPasswordScreen = ({navigation}) => {
         barStyle="dark-content"
       />
       <View style={styles.containerInner}>
-        <Text style={styles.titleText}>{`Forgot\nPassword`}</Text>
-        <Text style={styles.description}>
-          Enter the email address associated with your account and we'll email
-          you a secure link to reset your password.If you do not receive an
-          email, please try resubmitting your request or contacting customer
-          service at
-          <TouchableOpacity onPress={() => null}>
-            <Text style={{color: COLORS.primary}}>support@goldx.com</Text>
-          </TouchableOpacity>
-          for assistance
-        </Text>
+        <View>
+          <Text style={styles.titleText}>Forgot Password</Text>
+          <Text style={styles.description}>
+            Enter the email address associated with your account and we'll email
+            you a secure link to reset your password.If you do not receive an
+            email, please try resubmitting your request or contacting customer
+            service at
+            {/* <TouchableOpacity
+            onPress={() => null}
+            style={{backgroundColor: 'red'}}> */}
+            <Text
+              style={{color: COLORS.primary}}
+              onPress={() => console.log('support!!!')}>
+              {' '}
+              support@goldx.com{' '}
+            </Text>
+            {/* </TouchableOpacity> */}
+            for assistance
+          </Text>
+        </View>
+
         <Formik
           initialValues={initialValues}
           validationSchema={validationSchema}
           onSubmit={handleSubmit}>
           {() => (
-            <View>
+            <View style={{marginBottom: 150}}>
               <Input
                 label="Email"
                 labelStyle={styles.labelStyle}
@@ -52,10 +62,11 @@ const ForgotPasswordScreen = ({navigation}) => {
                 inputContainerStyle={styles.inputContainerStyle}
                 containerStyle={{paddingHorizontal: 0}}
               />
-              <MainButton title="Reset Password" />
             </View>
           )}
         </Formik>
+
+        <MainButton title="Reset Password" onPress={handleSubmit} />
       </View>
     </SafeAreaView>
   );
@@ -68,7 +79,7 @@ const styles = StyleSheet.create({
   containerInner: {
     height: '100%',
     paddingHorizontal: 38,
-    justifyContent: 'center',
+    justifyContent: 'space-around',
   },
   titleText: {
     color: COLORS.titlesText,
@@ -76,6 +87,12 @@ const styles = StyleSheet.create({
     fontSize: 36,
     lineHeight: 44,
     marginBottom: 10,
+    paddingTop: 100,
+  },
+  description: {
+    fontFamily: 'OpenSans-Regular',
+    fontSize: 16,
+    lineHeight: 20,
   },
   labelStyle: {
     fontFamily: 'OpenSans-Regular',

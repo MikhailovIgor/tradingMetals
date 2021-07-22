@@ -1,6 +1,5 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
-
 import CustomButton from './CustomButton';
 
 const CustomButtonsBox = () => (
@@ -10,16 +9,19 @@ const CustomButtonsBox = () => (
       imagePath={require('../assets/images/jimBullion.png')}
       width={122}
       height={22}
+      screenName="verificationComplete"
     />
     <CustomButton
       imagePath={require('../assets/images/silverLogo.png')}
       width={118}
       height={22}
+      screenName="forgotPassword"
     />
     <CustomButton
       imagePath={require('../assets/images/provident.png')}
       width={122}
       height={26}
+      screenName="verificationComplete"
     />
   </View>
 );

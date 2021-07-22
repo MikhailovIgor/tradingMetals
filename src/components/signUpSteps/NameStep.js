@@ -35,8 +35,8 @@ const NameStep = ({handleSubmit}) => {
         errors,
       }) => (
         <KeyboardAvoidingView
-        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-        style={styles.inputsBox}>
+          behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+          style={styles.inputsBox}>
           <Input
             label="First Name"
             labelStyle={styles.labelStyle}
