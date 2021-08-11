@@ -7,7 +7,12 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint ."
+    "clean-android": "cd android; ./gradlew clean cleanBuildCache; cd -",
+    "lint": "eslint .",
+    "lint-fix": "yarn lint --fix",
+    "prettier-write": "prettier --write",
+    "prettier-project": "yarn run prettier-write .",
+    "type-check": "tsc"
   },
   "dependencies": {
     "@react-native-community/masked-view": "0.1.11",
@@ -19,7 +24,6 @@
     "prop-types": "^15.7.2",
     "react": "17.0.1",
     "react-native": "0.64.1",
-    "react-native-country-picker-modal": "2.0.0",
     "react-native-elements": "3.4.1",
     "react-native-gesture-handler": "1.10.3",
     "react-native-linear-gradient": "2.5.6",
