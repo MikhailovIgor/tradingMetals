@@ -8,7 +8,7 @@ import {
   FlatList,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import {COLORS} from '../constants/colors';
+import {Colors} from '../constants';
 import slides from '../utils/mockData/onBoardData';
 import CustomStatusBar from '@components/CustomStatusBar';
 import OnboardingItem from '@components/OnboardingItem';
@@ -44,32 +44,36 @@ const OnboardingScreen = ({navigation}) => {
           barStyle="light-content"
           translucent
         />
-          <TouchableOpacity
-            style={styles.skipContainer}
-            onPress={() => navigation.navigate('welcome')}>
-            <Text style={styles.skipButton}>Skip</Text>
-          </TouchableOpacity>
-          <FlatList
-            horizontal
-            keyExtractor={item => item.id}
-            data={slides}
-            renderItem={({item}) => <OnboardingItem item={item} />}
-            bounces={false}
-            pagingEnabled
-            showsHorizontalScrollIndicator={false}
-            onScroll={Animated.event(
-              [{nativeEvent: {contentOffset: {x: scrollX}}}],
-              {useNativeDriver: false},
-            )}
-            scrollEventThrottle={32}
-            onViewableItemsChanged={viewableItemsChanged}
-            viewabilityConfig={viewConfig}
-            ref={slidesRef}
-          />
+        <TouchableOpacity
+          style={styles.skipContainer}
+          onPress={() => navigation.navigate('welcome')}>
+          <Text style={styles.skipButton}>Skip</Text>
+        </TouchableOpacity>
+        <FlatList
+          horizontal
+          keyExtractor={item => item.id}
+          data={slides}
+          renderItem={({item}) => <OnboardingItem item={item} />}
+          bounces={false}
+          pagingEnabled
+          showsHorizontalScrollIndicator={false}
+          onScroll={Animated.event(
+            [{nativeEvent: {contentOffset: {x: scrollX}}}],
+            {useNativeDriver: false},
+          )}
+          scrollEventThrottle={32}
+          onViewableItemsChanged={viewableItemsChanged}
+          viewabilityConfig={viewConfig}
+          ref={slidesRef}
+        />
       </LinearGradient>
       <View style={styles.footer}>
         <Paginator data={slides} currentSlide={currentIndex} />
-        <MainButton title="Next" onPress={scrollTo} buttonStyles={styles.footerBtn} />
+        <MainButton
+          title="Next"
+          onPress={scrollTo}
+          buttonStyles={styles.footerBtn}
+        />
       </View>
     </View>
   );
@@ -83,12 +87,12 @@ const styles = StyleSheet.create({
     flex: 0.85,
   },
   skipContainer: {
-    alignItems: "flex-end",
+    alignItems: 'flex-end',
     paddingRight: 20,
     marginTop: 20,
   },
   skipButton: {
-    color: COLORS.white,
+    color: Colors.white,
     fontFamily: 'OpenSans-SemiBold',
     fontSize: 18,
   },
@@ -100,8 +104,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 38,
   },
   footerBtn: {
-    marginTop: 20
-  }
+    marginTop: 20,
+  },
 });
 
 export default OnboardingScreen;

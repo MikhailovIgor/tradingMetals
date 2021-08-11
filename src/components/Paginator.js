@@ -1,14 +1,14 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
 
-import {COLORS} from '../constants/colors';
+import {Colors} from '../constants';
 
 function Paginator({data, currentSlide}) {
   return (
     <View style={styles.container}>
       {data.map((_, i) => {
         const dashBackgroundColor =
-          i === currentSlide ? COLORS.primary : '#C8D4E5';
+          i === currentSlide ? Colors.primary : '#C8D4E5';
         return (
           <View
             style={[styles.dash, {backgroundColor: dashBackgroundColor}]}

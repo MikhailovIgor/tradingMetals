@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import {
   Text,
   View,
@@ -7,24 +7,22 @@ import {
   StatusBar,
   StyleSheet,
 } from 'react-native';
-import { Button, CheckBox } from 'react-native-elements';
+import {Button, CheckBox} from 'react-native-elements';
 
 import CustomButtonsBox from '@components/CustomButtonsBox';
 import MainButton from '@components/MainButton';
-import { COLORS } from '@constants/colors';
+import {Colors} from '../constants';
 
-const WelcomeScreen = ({ navigation }) => {
-
+const WelcomeScreen = ({navigation}) => {
   const [checked, setChecked] = useState(false);
 
   return (
     <SafeAreaView style={styles.container}>
-      <StatusBar backgroundColor={COLORS.white} barStyle="dark-content" />
+      <StatusBar backgroundColor={Colors.white} barStyle="dark-content" />
       <View style={styles.containerInner}>
-
         <View style={styles.containerHeader}>
           <Image source={require('../assets/images/goldX.png')} />
-            <Text style={styles.headerText}>{`Welcome\nto GoldX`}</Text>
+          <Text style={styles.headerText}>{`Welcome\nto GoldX`}</Text>
         </View>
 
         <View>
@@ -46,18 +44,29 @@ const WelcomeScreen = ({ navigation }) => {
             checked={checked}
             onPress={() => setChecked(!checked)}
             containerStyle={styles.checkBoxContainer}
-            uncheckedColor={COLORS.primary}
-            checkedColor={COLORS.primary}
+            uncheckedColor={Colors.primary}
+            checkedColor={Colors.primary}
           />
           <View style={styles.agreementInfo}>
             <Text style={styles.agreementText}>
-              By creating this account, you agree to our <Text style={styles.redirectText} onPress={() => console.log("User Agreement")}>User Agreement</Text> and <Text style={styles.redirectText} onPress={() => console.log("Privacy Policy")}>Privacy Policy</Text>.
+              By creating this account, you agree to our{' '}
+              <Text
+                style={styles.redirectText}
+                onPress={() => console.log('User Agreement')}>
+                User Agreement
+              </Text>{' '}
+              and{' '}
+              <Text
+                style={styles.redirectText}
+                onPress={() => console.log('Privacy Policy')}>
+                Privacy Policy
+              </Text>
+              .
             </Text>
           </View>
         </View>
 
         <CustomButtonsBox />
-
       </View>
     </SafeAreaView>
   );
@@ -65,7 +74,7 @@ const WelcomeScreen = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: COLORS.white, 
+    backgroundColor: Colors.white,
   },
   containerInner: {
     height: '100%',
@@ -78,25 +87,25 @@ const styles = StyleSheet.create({
   headerText: {
     fontFamily: 'OpenSans-SemiBold',
     fontSize: 36,
-    color: COLORS.titlesText,
-    lineHeight: 44, 
+    color: Colors.titlesText,
+    lineHeight: 44,
     paddingVertical: 10,
   },
   createAccButton: {
-    backgroundColor: COLORS.white,
-    borderColor: COLORS.primary,
+    backgroundColor: Colors.white,
+    borderColor: Colors.primary,
     borderWidth: 1,
     borderRadius: 5,
     height: 46,
     marginTop: 20,
   },
   createAccText: {
-    color: COLORS.primary,
+    color: Colors.primary,
     fontFamily: 'OpenSans-SemiBold',
     fontSize: 18,
   },
   agreementContainer: {
-    flexDirection: "row",
+    flexDirection: 'row',
     marginTop: 20,
   },
   agreementInfo: {
@@ -111,7 +120,7 @@ const styles = StyleSheet.create({
     lineHeight: 22,
   },
   redirectText: {
-    color: COLORS.primary,
+    color: Colors.primary,
     fontFamily: 'OpenSans-SemiBold',
     fontSize: 15,
   },
@@ -120,7 +129,7 @@ const styles = StyleSheet.create({
     marginTop: 0,
     marginLeft: 0,
     marginRight: 0,
-  }
+  },
 });
 
 export default WelcomeScreen;

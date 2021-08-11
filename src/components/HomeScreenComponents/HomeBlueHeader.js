@@ -1,7 +1,7 @@
 import React from 'react';
 import {Text, View, StyleSheet} from 'react-native';
 
-import {COLORS} from '../../constants/colors';
+import {Colors} from '../../constants';
 import {LogoGoldX, TriangleRedDown} from '../svgComponents';
 
 const HomeBlueHeader = () => {
@@ -10,7 +10,7 @@ const HomeBlueHeader = () => {
       style={{
         width: '100%',
         height: 300,
-        backgroundColor: COLORS.primary,
+        backgroundColor: Colors.primary,
         justifyContent: 'space-around',
         alignItems: 'center',
         paddingTop: '12%',
@@ -89,7 +89,7 @@ const HomeBlueHeader = () => {
             style={{
               fontFamily: 'OpenSans-Regular',
               fontSize: 18,
-              color: COLORS.white,
+              color: Colors.white,
             }}>
             Cash Balance:
           </Text>
@@ -98,7 +98,7 @@ const HomeBlueHeader = () => {
               fontFamily: 'OpenSans-SemiBold',
               fontWeight: '800',
               fontSize: 22,
-              color: COLORS.white,
+              color: Colors.white,
             }}>
             $1,084.10 USD
           </Text>
@@ -108,7 +108,7 @@ const HomeBlueHeader = () => {
             style={{
               fontFamily: 'OpenSans-Regular',
               fontSize: 18,
-              color: COLORS.white,
+              color: Colors.white,
             }}>
             Metal Holdings:
           </Text>
@@ -117,7 +117,7 @@ const HomeBlueHeader = () => {
               fontFamily: 'OpenSans-SemiBold',
               fontWeight: '800',
               fontSize: 22,
-              color: COLORS.white,
+              color: Colors.white,
             }}>
             $755.30 USD
           </Text>

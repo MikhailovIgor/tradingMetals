@@ -4,7 +4,7 @@ import {Input} from 'react-native-elements';
 import {Formik} from 'formik';
 import * as Yup from 'yup';
 
-import {COLORS} from '../../constants/colors';
+import {Colors} from '../../constants';
 
 const NameStep = ({handleSubmit}) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -35,13 +35,13 @@ const NameStep = ({handleSubmit}) => {
         errors,
       }) => (
         <KeyboardAvoidingView
-        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-        style={styles.inputsBox}>
+          behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+          style={styles.inputsBox}>
           <Input
             label="First Name"
             labelStyle={styles.labelStyle}
             placeholder="Your First Name"
-            placeholderTextColor={COLORS.silver}
+            placeholderTextColor={Colors.silver}
             inputContainerStyle={styles.inputContainerStyle}
             onChangeText={handleChange('firstName')}
             onBlur={handleBlur('firstName')}
@@ -53,7 +53,7 @@ const NameStep = ({handleSubmit}) => {
             label="Last Name"
             labelStyle={styles.labelStyle}
             placeholder="Your Last Name"
-            placeholderTextColor={COLORS.silver}
+            placeholderTextColor={Colors.silver}
             inputContainerStyle={styles.inputContainerStyle}
             onChangeText={handleChange('lastName')}
             onBlur={handleBlur('lastName')}
@@ -69,23 +69,21 @@ const NameStep = ({handleSubmit}) => {
 
 const styles = StyleSheet.create({
   labelStyle: {
-    color: COLORS.iconGrey,
+    color: Colors.iconGrey,
     fontFamily: 'OpenSans-Regular',
     fontSize: 16,
     lineHeight: 20,
     paddingBottom: 5,
   },
   inputContainerStyle: {
-    borderColor: COLORS.silver,
+    borderColor: Colors.silver,
     borderWidth: 1,
     borderRadius: 5,
     height: 47,
     paddingLeft: 10,
   },
-  containerStyle: {backgroundColor: 'tomato'},
-  inputsBox: {
-    // width: '100%',
-  },
+  containerStyle: {},
+  inputsBox: {},
 });
 
 export default NameStep;

@@ -1,16 +1,16 @@
 import React from 'react';
-import  { View, StyleSheet } from 'react-native';
-import { Button } from 'react-native-elements';
+import {View, StyleSheet} from 'react-native';
+import {Button} from 'react-native-elements';
 
-import COLORS from '../constants/colors';
+import Colors from '../constants';
 
-const OnboardingFooter = ({ onPress }) => (
+const OnboardingFooter = ({onPress}) => (
   <View style={styles.container}>
     <Button
       solid
-      title='Next'
+      title="Next"
       buttonStyle={styles.button}
-      titleStyle={color: COLORS.white}
+      titleStyle={{color: Colors.white}}
       onPress={onPress}
     />
   </View>
@@ -19,12 +19,12 @@ const OnboardingFooter = ({ onPress }) => (
 const styles = StyleSheet.create({
   container: {
     flex: 0.2,
-    backgroundColor: COLORS.white,
+    backgroundColor: Colors.white,
     justifyContent: 'center',
     alignItems: 'center',
   },
   button: {
-    backgroundColor: COLORS.primary,
+    backgroundColor: Colors.primary,
     height: 45,
     width: 320,
     borderRadius: 5,

@@ -1,9 +1,9 @@
 import React from 'react';
 import Svg, {Path} from 'react-native-svg';
 
-import {COLORS} from '../../constants/colors';
+import {Colors} from '../../constants';
 
-const ThreeBullionsIcon = ({color = COLORS.iconGrey}) => (
+const ThreeBullionsIcon = ({color = Colors.iconGrey}) => (
   <Svg
     width="40"
     height="20"

@@ -5,7 +5,7 @@ import {
   BottomTabBar,
 } from '@react-navigation/bottom-tabs';
 
-import {COLORS} from '../constants/colors';
+import {Colors} from '../constants';
 import HomeScreen from '@screens/HomeScreen';
 import PortfolioScreen from '@screens/PortfolioScreen';
 import NullScreen from '@screens/NullScreen';
@@ -19,23 +19,20 @@ import {
   TabBarCentralButton,
 } from '@components/tabBarComponents';
 import ButtonMenu from './ButtonMenu';
-import { isIphoneX } from '../utils/isIphoneX';
+import {isIphoneX} from '../utils/isIphoneX';
 
 const Tab = createBottomTabNavigator();
-const activeTintColor = COLORS.primary;
-const inActiveTintColor = COLORS.grey;
+const activeTintColor = Colors.primary;
+const inActiveTintColor = Colors.grey;
 
 const renderCustomTabBarButton = (props, customStyle) => {
   const newProps = {
     ...props,
-    style: [
-      ...props.style,
-      customStyle,
-    ],
-    activeOpacity: 1
+    style: [...props.style, customStyle],
+    activeOpacity: 1,
   };
 
-  return <TouchableOpacity {...newProps} />
+  return <TouchableOpacity {...newProps} />;
 };
 
 const BottomTabNavigator = () => {
@@ -43,79 +40,85 @@ const BottomTabNavigator = () => {
 
   return (
     <>
-    <Tab.Navigator
-      initialRouteName="Home"
-      tabBar={props => (
-        <View style={styles.navigatorContainer}>
-          <BottomTabBar {...props} />
-          {isIphoneX && <View style={styles.iosFillLine} />}
-        </View>
-      )}
-      tabBarOptions={{
-        style: styles.navigator,
-        tabStyle: {
-          backgroundColor: '#fff',
-        },
-      }}>
-      <Tab.Screen
-        name="Home"
-        component={HomeScreen}
-        options={{
-          tabBarIcon: ({focused}) => (
-            <HomeIcon color={focused ? activeTintColor : inActiveTintColor} />
-          ),
-          tabBarButton: props => renderCustomTabBarButton(props, styles.firstTabBarButton)
-        }}
-      />
-      <Tab.Screen
-        name="Portfolio"
-        component={PortfolioScreen}
-        options={{
-          tabBarIcon: ({focused}) => (
-            <PortfolioIcon
-              color={focused ? activeTintColor : inActiveTintColor}
-            />
-          ),
-        }}
-      />
-      <Tab.Screen
-        name="Modal"
-        component={NullScreen}
-        options={{
-          tabBarButton: props => (
-            <TabBarCentralButton
-              bgColor={COLORS.white}
-              onPress={() => setVisibleButtonMenu(true)}
-            />
-          ),
-        }}
-      />
-      <Tab.Screen
-        name="Prices"
-        component={PricesScreen}
-        options={{
-          tabBarIcon: ({focused}) => (
-            <PricesIcon color={focused ? activeTintColor : inActiveTintColor} />
-          ),
-        }}
-      />
-      <Tab.Screen
-        name="Settings"
-        component={SettingsScreen}
-        options={{
-          tabBarIcon: ({focused}) => (
-            <SettingsIcon color={focused ? activeTintColor : inActiveTintColor} />
-          ),
-          tabBarButton: props => renderCustomTabBarButton(props, styles.lastTabBarButton)
-        }}
-      />
-    </Tab.Navigator>
+      <Tab.Navigator
+        initialRouteName="Home"
+        tabBar={props => (
+          <View style={styles.navigatorContainer}>
+            <BottomTabBar {...props} />
+            {isIphoneX && <View style={styles.iosFillLine} />}
+          </View>
+        )}
+        tabBarOptions={{
+          style: styles.navigator,
+          tabStyle: {
+            backgroundColor: '#fff',
+          },
+        }}>
+        <Tab.Screen
+          name="Home"
+          component={HomeScreen}
+          options={{
+            tabBarIcon: ({focused}) => (
+              <HomeIcon color={focused ? activeTintColor : inActiveTintColor} />
+            ),
+            tabBarButton: props =>
+              renderCustomTabBarButton(props, styles.firstTabBarButton),
+          }}
+        />
+        <Tab.Screen
+          name="Portfolio"
+          component={PortfolioScreen}
+          options={{
+            tabBarIcon: ({focused}) => (
+              <PortfolioIcon
+                color={focused ? activeTintColor : inActiveTintColor}
+              />
+            ),
+          }}
+        />
+        <Tab.Screen
+          name="Modal"
+          component={NullScreen}
+          options={{
+            tabBarButton: props => (
+              <TabBarCentralButton
+                bgColor={Colors.white}
+                onPress={() => setVisibleButtonMenu(true)}
+              />
+            ),
+          }}
+        />
+        <Tab.Screen
+          name="Prices"
+          component={PricesScreen}
+          options={{
+            tabBarIcon: ({focused}) => (
+              <PricesIcon
+                color={focused ? activeTintColor : inActiveTintColor}
+              />
+            ),
+          }}
+        />
+        <Tab.Screen
+          name="Settings"
+          component={SettingsScreen}
+          options={{
+            tabBarIcon: ({focused}) => (
+              <SettingsIcon
+                color={focused ? activeTintColor : inActiveTintColor}
+              />
+            ),
+            tabBarButton: props =>
+              renderCustomTabBarButton(props, styles.lastTabBarButton),
+          }}
+        />
+      </Tab.Navigator>
       <ButtonMenu
         visible={visibleButtonMenu}
         close={() => setVisibleButtonMenu(false)}
       />
     </>
-  )
+  );
 };
 
 const styles = StyleSheet.create({
@@ -146,11 +149,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   firstTabBarButton: {
-    borderTopLeftRadius: 27
+    borderTopLeftRadius: 27,
   },
   lastTabBarButton: {
-    borderTopRightRadius: 27
-  }
+    borderTopRightRadius: 27,
+  },
 });
 
 export default BottomTabNavigator;

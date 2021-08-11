@@ -2,7 +2,7 @@ import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import {Input} from 'react-native-elements';
 
-import {COLORS} from '../../constants/colors';
+import {Colors} from '../../constants';
 
 const MobileVerStep = () => {
   return (
@@ -10,7 +10,7 @@ const MobileVerStep = () => {
       label="Mobile Number"
       labelStyle={styles.labelStyle}
       placeholder="Enter your US phone number"
-      placeholderTextColor={COLORS.grey}
+      placeholderTextColor={Colors.grey}
       inputContainerStyle={styles.inputContainerStyle}
       // onChangeText={handleChange('email')}
       // onBlur={handleBlur('email')}

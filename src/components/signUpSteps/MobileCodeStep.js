@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
-import {COLORS} from '../../constants/colors';
+import {Colors} from '../../constants';
 
 const enterTheCode = 'enter the code';
 
@@ -11,7 +11,7 @@ const MobileCodeStep = () => {
       <View
         style={{
           height: 2,
-          backgroundColor: COLORS.grey,
+          backgroundColor: Colors.grey,
           marginTop: 70,
           width: 280,
         }}
@@ -19,7 +19,7 @@ const MobileCodeStep = () => {
       <View style={{flexDirection: 'row', marginTop: 30}}>
         <Text
           style={{
-            color: COLORS.grey,
+            color: Colors.grey,
             fontFamily: 'OpenSans-Regular',
             fontSize: 16,
           }}>
@@ -28,7 +28,7 @@ const MobileCodeStep = () => {
         <TouchableOpacity>
           <Text
             style={{
-              color: COLORS.primary,
+              color: Colors.primary,
               fontFamily: 'OpenSans-Regular',
               fontSize: 16,
               paddingLeft: 5,
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
   codeText: {
     fontFamily: 'OpenSans-Regular',
     fontSize: 18,
-    color: '#050f19',
+    color: Colors.titleText,
   },
 });
 

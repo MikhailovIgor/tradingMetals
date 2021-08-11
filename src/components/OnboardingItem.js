@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Text, Image, useWindowDimensions, StyleSheet} from 'react-native';
 
-import {COLORS} from '../constants/colors';
+import {Colors} from '../constants';
 
 const OnboardingItem = ({item}) => {
   const {width} = useWindowDimensions();
@@ -27,30 +27,30 @@ const styles = StyleSheet.create({
     paddingTop: 10,
   },
   textContainer: {
-    flex: 0.4, 
+    flex: 0.4,
     paddingHorizontal: 37,
     // flex: 1, paddingHorizontal: 37, justifyContent: "center",
   },
   titleText: {
-    color: COLORS.white,
+    color: Colors.white,
     fontFamily: 'OpenSans-SemiBold',
     fontSize: 32,
     marginTop: 10,
     marginBottom: 10,
   },
   description: {
-    color: COLORS.white,
+    color: Colors.white,
     fontFamily: 'OpenSans-SemiBold',
     fontWeight: '100',
     fontSize: 16,
   },
   imageContainer: {
     flex: 0.65,
-    // flex: 1, 
+    // flex: 1,
   },
   imageStyle: {
-    bottom: -50
-  }
+    bottom: -50,
+  },
 });
 
 export default OnboardingItem;

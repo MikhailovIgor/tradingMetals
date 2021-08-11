@@ -3,7 +3,7 @@ import {StyleSheet, Text, View} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import MainButton from '../components/MainButton';
-import {COLORS} from '../constants/colors';
+import {Colors} from '../constants';
 
 const VerCompleteScreen = ({navigation}) => {
   return (
@@ -18,7 +18,7 @@ const VerCompleteScreen = ({navigation}) => {
           <Text style={styles.title}>Verification</Text>
           <Text style={styles.title}>Complete</Text>
         </View>
-        <Icon name="checkmark-circle" color={COLORS.primary} size={90} />
+        <Icon name="checkmark-circle" color={Colors.primary} size={90} />
       </View>
       <MainButton title="Next" onPress={() => null} />
     </View>
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
   title: {
     fontFamily: 'OpenSans-SemiBold',
     fontSize: 32,
-    color: COLORS.black,
+    color: Colors.black,
   },
 });
 

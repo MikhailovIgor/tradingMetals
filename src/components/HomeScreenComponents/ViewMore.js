@@ -2,14 +2,14 @@ import React from 'react';
 import {Text, View, TouchableOpacity, StyleSheet} from 'react-native';
 
 import {ArrowRight} from '../svgComponents';
-import {COLORS} from '../../constants/colors';
+import {Colors} from '../../constants';
 
 const ViewMore = ({onPress}) => {
   return (
     <TouchableOpacity style={styles.container} onPress={onPress}>
       <Text style={styles.text}>View More</Text>
       <View style={{justifyContent: 'center'}}>
-        <ArrowRight color={COLORS.primary} />
+        <ArrowRight color={Colors.primary} />
       </View>
     </TouchableOpacity>
   );
@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   text: {
-    color: COLORS.primary,
+    color: Colors.primary,
     fontFamily: 'OpenSans-SemiBold',
     fontSize: 18,
     paddingBottom: 2,

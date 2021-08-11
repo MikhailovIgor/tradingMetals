@@ -4,7 +4,7 @@ import {Input} from 'react-native-elements';
 import {Formik} from 'formik';
 import * as Yup from 'yup';
 
-import {COLORS} from '../../constants/colors';
+import {Colors} from '../../constants';
 import MainButton from '../MainButton';
 
 const EmailStep = ({handleSubmit}) => {
@@ -36,7 +36,7 @@ const EmailStep = ({handleSubmit}) => {
             label="Email"
             labelStyle={styles.labelStyle}
             placeholder="Your Email"
-            placeholderTextColor={COLORS.grey}
+            placeholderTextColor={Colors.grey}
             inputContainerStyle={styles.inputContainerStyle}
             onChangeText={handleChange('email')}
             onBlur={handleBlur('email')}

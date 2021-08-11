@@ -2,18 +2,15 @@ import React from 'react';
 import {StyleSheet} from 'react-native';
 import {Button} from 'react-native-elements';
 import PropTypes from 'prop-types';
-import {COLORS} from '../constants/colors';
+import {Colors} from '../constants';
 
 const MainButton = ({title, onPress, filled, buttonStyles, ...props}) => {
   const buttonStyle = [
     styles.button,
     filled ? styles.filled : null,
-    buttonStyles
+    buttonStyles,
   ];
-  const titleStyle = [
-    styles.title, 
-    filled ? styles.filledTitle : null
-  ]
+  const titleStyle = [styles.title, filled ? styles.filledTitle : null];
 
   return (
     <Button
@@ -31,39 +28,40 @@ MainButton.propTypes = {
   title: PropTypes.string,
   onPress: PropTypes.func,
   filled: PropTypes.bool,
-  buttonStyles: PropTypes.object
+  buttonStyles: PropTypes.object,
 };
 
 MainButton.defaultProps = {
   title: 'Main Button',
-  onPress: () => {console.log('Main Button click')},
+  onPress: () => {
+    console.log('Main Button click');
+  },
   filled: true,
 };
 
-
 const styles = StyleSheet.create({
   containerStyle: {
-    width: "100%",
+    width: '100%',
   },
   button: {
-    backgroundColor: COLORS.white,
-    borderColor: COLORS.primary,
+    backgroundColor: Colors.white,
+    borderColor: Colors.primary,
     borderWidth: 1,
     borderRadius: 5,
     paddingVertical: 12,
   },
   filled: {
-    backgroundColor: COLORS.primary,
+    backgroundColor: Colors.primary,
   },
   title: {
-    color: COLORS.primary,
+    color: Colors.primary,
     fontFamily: 'OpenSans-SemiBold',
     fontSize: 18,
     lineHeight: 22,
   },
   filledTitle: {
-    color: COLORS.white
-  }
+    color: Colors.white,
+  },
 });
 
 export default MainButton;

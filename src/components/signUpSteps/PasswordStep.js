@@ -4,7 +4,7 @@ import {Input} from 'react-native-elements';
 import {Formik} from 'formik';
 import * as Yup from 'yup';
 
-import {COLORS} from '../../constants/colors';
+import {Colors} from '../../constants';
 
 const NameStep = ({handleSubmit}) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -39,7 +39,7 @@ const NameStep = ({handleSubmit}) => {
             label="Password"
             labelStyle={styles.labelStyle}
             placeholder="Enter password"
-            placeholderTextColor={COLORS.grey}
+            placeholderTextColor={Colors.grey}
             inputContainerStyle={styles.inputContainerStyle}
             onChangeText={handleChange('password')}
             onBlur={handleBlur('password')}
@@ -51,7 +51,7 @@ const NameStep = ({handleSubmit}) => {
             label="Confirm Password"
             labelStyle={styles.labelStyle}
             placeholder="Confirm password"
-            placeholderTextColor={COLORS.grey}
+            placeholderTextColor={Colors.grey}
             inputContainerStyle={styles.inputContainerStyle}
             onChangeText={handleChange('password')}
             onBlur={handleBlur('password')}

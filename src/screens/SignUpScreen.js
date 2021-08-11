@@ -15,7 +15,7 @@ import slides from '../utils/mockData/signUpData';
 import MainButton from '@components/MainButton';
 import SignUpItem from '@components/SignUpItem';
 import Paginator from '@components/Paginator';
-import {COLORS} from '../constants/colors';
+import {Colors} from '../constants';
 
 const SignUpScreen = ({navigation}) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -42,44 +42,44 @@ const SignUpScreen = ({navigation}) => {
   };
 
   return (
-      <SafeAreaView style={styles.container}>
-        <StatusBar
-          barStyle="dark-content"
-          translucent
-          backgroundColor={'transparent'}
+    <SafeAreaView style={styles.container}>
+      <StatusBar
+        barStyle="dark-content"
+        translucent
+        backgroundColor={'transparent'}
+      />
+      <View style={styles.containerInner}>
+        <FlatList
+          horizontal
+          keyExtractor={item => item.id}
+          data={slides}
+          renderItem={({item}) => (
+            <SignUpItem item={item} handleSubmit={handleSubmit} />
+          )}
+          pagingEnabled
+          scrollEnabled={false}
+          showsHorizontalScrollIndicator={false}
+          onScroll={Animated.event(
+            [{nativeEvent: {contentOffset: {x: scrollX}}}],
+            {useNativeDriver: false},
+          )}
+          scrollEventThrottle={32}
+          onViewableItemsChanged={viewableItemsChanged}
+          viewabilityConfig={viewConfig}
+          ref={slidesRef}
         />
-        <View style={styles.containerInner}>
-          <FlatList
-            horizontal
-            keyExtractor={item => item.id}
-            data={slides}
-            renderItem={({item}) => (
-              <SignUpItem item={item} handleSubmit={handleSubmit} />
-            )}
-            pagingEnabled
-            scrollEnabled={false}
-            showsHorizontalScrollIndicator={false}
-            onScroll={Animated.event(
-              [{nativeEvent: {contentOffset: {x: scrollX}}}],
-              {useNativeDriver: false},
-            )}
-            scrollEventThrottle={32}
-            onViewableItemsChanged={viewableItemsChanged}
-            viewabilityConfig={viewConfig}
-            ref={slidesRef}
-          />
-          <View style={styles.footer}>
-            <Paginator data={slides} currentSlide={currentIndex} />
-            <MainButton title="Continue" onPress={scrollTo} />
-          </View>
+        <View style={styles.footer}>
+          <Paginator data={slides} currentSlide={currentIndex} />
+          <MainButton title="Continue" onPress={scrollTo} />
         </View>
-      </SafeAreaView>
+      </View>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: COLORS.white,
+    backgroundColor: Colors.white,
   },
   containerInner: {
     height: '100%',

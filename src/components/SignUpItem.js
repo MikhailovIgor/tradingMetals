@@ -1,21 +1,17 @@
 import React from 'react';
-import {View, Text, useWindowDimensions, StyleSheet, ImageStore} from 'react-native';
+import {View, Text, useWindowDimensions, StyleSheet} from 'react-native';
 
-import {COLORS} from '../constants/colors';
+import {Colors} from '../constants';
 
 const SignUpItem = ({item, handleSubmit}) => {
   const {width} = useWindowDimensions();
 
   return (
     <View style={styles.container}>
-        <Text style={styles.titleText}>
-          {item.title}
-        </Text>
-        <Text style={styles.description}>
-          {item.description}
-        </Text>
-        <View handleSubmit={handleSubmit} style={styles.componentContainer}>
-          {item.component}
+      <Text style={styles.titleText}>{item.title}</Text>
+      <Text style={styles.description}>{item.description}</Text>
+      <View handleSubmit={handleSubmit} style={styles.componentContainer}>
+        {item.component}
       </View>
     </View>
   );
@@ -23,7 +19,6 @@ const SignUpItem = ({item, handleSubmit}) => {
 
 const styles = StyleSheet.create({
   container: {
-    // paddingTop: 87,
     width: '100%',
     justifyContent: 'center',
   },
@@ -33,14 +28,14 @@ const styles = StyleSheet.create({
     paddingTop: 60,
   },
   titleText: {
-    color: COLORS.titlesText,
+    color: Colors.titleText,
     fontFamily: 'OpenSans-SemiBold',
     fontSize: 36,
     lineHeight: 44,
     marginBottom: 10,
   },
   description: {
-    color: COLORS.ordinaryText,
+    color: Colors.contentText,
     fontFamily: 'OpenSans-Regular',
     fontSize: 16,
     lineHeight: 20,
